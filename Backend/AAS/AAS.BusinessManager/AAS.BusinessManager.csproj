@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3399129D-67FB-4A49-80F6-73F1EADE1255}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AAS.BusinessManager</RootNamespace>
+    <AssemblyName>AAS.BusinessManager</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Backend.MANAGER">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Backend.MANAGER\MyUtil.Backend.MANAGER.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.CommonLogging">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.CommonLogging\MyUtil.CommonLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Core">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Core\MyUtil.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Token.Authenticate">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Token.Authenticate\MyUtil.Token.Authenticate.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Token.Backend">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Token.Backend\MyUtil.Token.Backend.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Token.Core">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Token.Core\MyUtil.Token.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MyUtil.Token.Password">
+      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Token.Password\MyUtil.Token.Password.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AasCredentialData\AasCredentialDataCheck.cs" />
+    <Compile Include="AasCredentialData\AasCredentialDataCreate.cs" />
+    <Compile Include="AasCredentialData\AasCredentialDataLock.cs" />
+    <Compile Include="AasCredentialData\AasCredentialDataManager.cs" />
+    <Compile Include="AasCredentialData\AasCredentialDataTruncate.cs" />
+    <Compile Include="AasCredentialData\AasCredentialDataUpdate.cs" />
+    <Compile Include="AasRole\AasRoleCheck.cs" />
+    <Compile Include="AasRole\AasRoleCheckCode.cs" />
+    <Compile Include="AasRole\AasRoleCreate.cs" />
+    <Compile Include="AasRole\AasRoleLock.cs" />
+    <Compile Include="AasRole\AasRoleManager.cs" />
+    <Compile Include="AasRole\AasRoleTruncate.cs" />
+    <Compile Include="AasRole\AasRoleUpdate.cs" />
+    <Compile Include="AasUserRole\AasUserRoleCheck.cs" />
+    <Compile Include="AasUserRole\AasUserRoleCreate.cs" />
+    <Compile Include="AasUserRole\AasUserRoleLock.cs" />
+    <Compile Include="AasUserRole\AasUserRoleManager.cs" />
+    <Compile Include="AasUserRole\AasUserRoleTruncate.cs" />
+    <Compile Include="AasUserRole\AasUserRoleUpdate.cs" />
+    <Compile Include="AasUser\AasUserCheck.cs" />
+    <Compile Include="AasUser\AasUserCheckLoginname.cs" />
+    <Compile Include="AasUser\AasUserCreate.cs" />
+    <Compile Include="AasUser\AasUserLock.cs" />
+    <Compile Include="AasUser\AasUserManager.cs" />
+    <Compile Include="AasUser\AasUserResetPassword.cs" />
+    <Compile Include="AasUser\AasUserTruncate.cs" />
+    <Compile Include="AasUser\AasUserUpdate.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleCheck.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleCreate.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleLock.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleManager.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleTruncate.cs" />
+    <Compile Include="AasModuleRole\AasModuleRoleUpdate.cs" />
+    <Compile Include="AasModule\AasModuleCheck.cs" />
+    <Compile Include="AasModule\AasModuleCreate.cs" />
+    <Compile Include="AasModule\AasModuleLock.cs" />
+    <Compile Include="AasModule\AasModuleManager.cs" />
+    <Compile Include="AasModule\AasModuleTruncate.cs" />
+    <Compile Include="AasModule\AasModuleUpdate.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleCheck.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleCreate.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleLock.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleManager.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleTruncate.cs" />
+    <Compile Include="AasApplicationRole\AasApplicationRoleUpdate.cs" />
+    <Compile Include="AasApplication\AasApplicationCheck.cs" />
+    <Compile Include="AasApplication\AasApplicationCheckCode.cs" />
+    <Compile Include="AasApplication\AasApplicationCreate.cs" />
+    <Compile Include="AasApplication\AasApplicationLock.cs" />
+    <Compile Include="AasApplication\AasApplicationManager.cs" />
+    <Compile Include="AasApplication\AasApplicationTruncate.cs" />
+    <Compile Include="AasApplication\AasApplicationUpdate.cs" />
+    <Compile Include="Base\BugUtil.cs" />
+    <Compile Include="Base\MessageUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token\Authorize\TokenAuthorizeProcessor.cs" />
+    <Compile Include="Token\Authorize\TokenAuthorizeCheck.cs" />
+    <Compile Include="Token\Common\TokenManagerBase.cs" />
+    <Compile Include="Token\Login\TokenLoginCheck.cs" />
+    <Compile Include="Token\Login\TokenLoginProcessor.cs" />
+    <Compile Include="Token\TokenChangePassword.cs" />
+    <Compile Include="Token\TokenGetAuthenticated.cs" />
+    <Compile Include="Token\TokenGetAuthenticatedByAddress.cs" />
+    <Compile Include="Token\TokenGetCredentialData.cs" />
+    <Compile Include="Token\TokenGetTokenDataAlive.cs" />
+    <Compile Include="Token\TokenLogin.cs" />
+    <Compile Include="Token\TokenLogout.cs" />
+    <Compile Include="Token\TokenManager.cs" />
+    <Compile Include="Token\TokenSetCredentialData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AAS.DAO\AAS.DAO.csproj">
+      <Project>{60a3076b-96b3-4783-8546-1f76d559151b}</Project>
+      <Name>AAS.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.EFMODEL\AAS.EFMODEL.csproj">
+      <Project>{43fc4c38-ab5c-404d-8750-433fbfa8a0b0}</Project>
+      <Name>AAS.EFMODEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.Filter\AAS.Filter.csproj">
+      <Project>{8230cbcc-fdfd-476a-8628-d094a63c736a}</Project>
+      <Name>AAS.Filter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.GetManager\AAS.GetManager.csproj">
+      <Project>{1b522594-a3b5-4658-8e49-0e40cad8a5e5}</Project>
+      <Name>AAS.GetManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.LibraryBug\AAS.LibraryBug.csproj">
+      <Project>{f3e00b67-5580-4087-91bc-c9e3046496bc}</Project>
+      <Name>AAS.LibraryBug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.LibraryMessage\AAS.LibraryMessage.csproj">
+      <Project>{e2546b0a-eac4-4b87-9543-a951ae57aff1}</Project>
+      <Name>AAS.LibraryMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.SDO\AAS.SDO.csproj">
+      <Project>{f8185883-e312-425e-b847-3049b405dee1}</Project>
+      <Name>AAS.SDO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AAS.Util\AAS.Util.csproj">
+      <Project>{96186057-a842-43a0-91cc-7c817886b906}</Project>
+      <Name>AAS.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
