@@ -1,5 +1,5 @@
 
-using MyUtil.Repository;
+using DungLH.Util.Repository;
 
 namespace AAS.DAO.Base
 {

@@ -30,23 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DungLH.Util.Backend.EFMODEL">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Backend.EFMODEL\DungLH.Util.Backend.EFMODEL.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.CommonLogging">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.CommonLogging\DungLH.Util.CommonLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Core">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Core\DungLH.Util.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Repository">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Repository\DungLH.Util.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Token.Backend">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Token.Backend\DungLH.Util.Token.Backend.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="MyUtil.Backend.EFMODEL">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Backend.EFMODEL\MyUtil.Backend.EFMODEL.dll</HintPath>
-    </Reference>
-    <Reference Include="MyUtil.CommonLogging">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.CommonLogging\MyUtil.CommonLogging.dll</HintPath>
-    </Reference>
-    <Reference Include="MyUtil.Core">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Core\MyUtil.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MyUtil.Repository">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Repository\MyUtil.Repository.dll</HintPath>
-    </Reference>
-    <Reference Include="MyUtil.Token.Backend">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Token.Backend\MyUtil.Token.Backend.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

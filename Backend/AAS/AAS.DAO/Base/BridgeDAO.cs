@@ -1,6 +1,6 @@
 ﻿using AAS.EFMODEL.Decorator;
-using MyUtil.Backend.EFMODEL;
-using MyUtil.CommonLogging;
+using DungLH.Util.Backend.EFMODEL;
+using DungLH.Util.CommonLogging;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -23,7 +23,7 @@ namespace AAS.DAO.Base
     /// </summary>
     /// <typeparam name="DTO"></typeparam>
     /// <typeparam name="RAW"></typeparam>
-    class BridgeDAO<RAW> : MyUtil.Core.EntityBase
+    class BridgeDAO<RAW> : DungLH.Util.Core.EntityBase
         where RAW : class
     {
         const string APP_CODE = "AAS";
@@ -52,7 +52,7 @@ namespace AAS.DAO.Base
                         }
                         else
                         {
-                            Logging("Khong tim duoc ban ghi trong cSDL theo id de truncate." + MyUtil.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
+                            Logging("Khong tim duoc ban ghi trong cSDL theo id de truncate." + DungLH.Util.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
                         }
                     }
                 }
@@ -60,13 +60,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("id", id), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
@@ -97,13 +97,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("listRaw", listRaw), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("listRaw", listRaw), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("listRaw", listRaw), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("listRaw", listRaw), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
@@ -129,7 +129,7 @@ namespace AAS.DAO.Base
             {
                 if (IsNotNull(data))
                 {
-                    string loginname = MyUtil.Token.Backend.BackendTokenManager.GetLoginname();
+                    string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
                     CreatorDecorator.Set<RAW>(data, loginname);
                     DummyDecorator.Set<RAW>(data);
 
@@ -143,13 +143,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
@@ -164,7 +164,7 @@ namespace AAS.DAO.Base
             {
                 if (IsNotNullOrEmpty(listData))
                 {
-                    string loginName = MyUtil.Token.Backend.BackendTokenManager.GetLoginname();
+                    string loginName = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
 
                     using (var ctx = new AppContext())
                     {
@@ -205,7 +205,7 @@ namespace AAS.DAO.Base
                 {
                     using (var ctx = new AppContext())
                     {
-                        string loginname = MyUtil.Token.Backend.BackendTokenManager.GetLoginname();
+                        string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
                         ModifierDecorator.Set<RAW>(data, loginname);
                         var entry = ctx.Entry<RAW>(data);
                         ctx.GetDbSet<RAW>().Attach(data);                        
@@ -228,13 +228,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("data", data), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
@@ -251,7 +251,7 @@ namespace AAS.DAO.Base
                     using (var ctx = new AppContext())
                     {
                         var dbSet = ctx.GetDbSet<RAW>();
-                        string loginName = MyUtil.Token.Backend.BackendTokenManager.GetLoginname();
+                        string loginName = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
                         List<string> notChangeFields = DenyUpdateDecorator.Get<RAW>();
 
                         foreach (RAW data in listData)
@@ -279,13 +279,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("listData", listData), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("listData", listData), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("listData", listData), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("listData", listData), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
@@ -304,7 +304,7 @@ namespace AAS.DAO.Base
                         var count = ctx.Database.ExecuteSqlCommand(sql);
                         if (count == 0)
                         {
-                            MyUtil.CommonLogging.LogSystem.Info("SQL thuc hien thanh cong tuy nhien khong co du lieu duoc tac dong." + MyUtil.CommonLogging.LogUtil.TraceData("sql", sql));
+                            DungLH.Util.CommonLogging.LogSystem.Info("SQL thuc hien thanh cong tuy nhien khong co du lieu duoc tac dong." + DungLH.Util.CommonLogging.LogUtil.TraceData("sql", sql));
                         }
                         result = true;
                     }
@@ -313,13 +313,13 @@ namespace AAS.DAO.Base
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logging(LogUtil.TraceDbException(ex), LogType.Error);
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("sql", sql), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("sql", sql), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                Logging(MyUtil.CommonLogging.LogUtil.TraceData("sql", sql), LogType.Error);
+                Logging(DungLH.Util.CommonLogging.LogUtil.TraceData("sql", sql), LogType.Error);
                 LogSystem.Error(ex);
                 result = false;
             }

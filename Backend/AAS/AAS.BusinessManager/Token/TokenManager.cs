@@ -1,7 +1,7 @@
 ﻿using AAS.SDO;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
-using MyUtil.Token.Authenticate;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
+using DungLH.Util.Token.Authenticate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,18 +25,18 @@ namespace AAS.BusinessManager.Token
 
         }
 
-        public ApiResultObject<MyUtil.Token.Core.TokenData> Login(HttpActionContext actionContext)
+        public ApiResultObject<DungLH.Util.Token.Core.TokenData> Login(HttpActionContext actionContext)
         {
-            ApiResultObject<MyUtil.Token.Core.TokenData> result = new ApiResultObject<MyUtil.Token.Core.TokenData>(null, false);
+            ApiResultObject<DungLH.Util.Token.Core.TokenData> result = new ApiResultObject<DungLH.Util.Token.Core.TokenData>(null, false);
             try
             {
-                MyUtil.Token.Core.TokenData resultData = null;
+                DungLH.Util.Token.Core.TokenData resultData = null;
                 new TokenLogin(param).Run(actionContext, ref resultData);
                 result = this.PackResult(resultData);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
@@ -51,7 +51,7 @@ namespace AAS.BusinessManager.Token
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
@@ -66,60 +66,60 @@ namespace AAS.BusinessManager.Token
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
 
-        public ApiResultObject<MyUtil.Token.Core.TokenData> GetAuthenticated(HttpActionContext actionContext)
+        public ApiResultObject<DungLH.Util.Token.Core.TokenData> GetAuthenticated(HttpActionContext actionContext)
         {
-            ApiResultObject<MyUtil.Token.Core.TokenData> result = new ApiResultObject<MyUtil.Token.Core.TokenData>(null, false);
+            ApiResultObject<DungLH.Util.Token.Core.TokenData> result = new ApiResultObject<DungLH.Util.Token.Core.TokenData>(null, false);
             try
             {
-                MyUtil.Token.Core.TokenData resultData = null;
+                DungLH.Util.Token.Core.TokenData resultData = null;
                 new TokenGetAuthenticated(param).Run(actionContext, ref resultData);
                 result = this.PackResult(resultData);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
 
-        public ApiResultObject<MyUtil.Token.Core.TokenData> GetAuthenticateByAddress(HttpActionContext actionContext)
+        public ApiResultObject<DungLH.Util.Token.Core.TokenData> GetAuthenticateByAddress(HttpActionContext actionContext)
         {
-            ApiResultObject<MyUtil.Token.Core.TokenData> result = new ApiResultObject<MyUtil.Token.Core.TokenData>(null, false);
+            ApiResultObject<DungLH.Util.Token.Core.TokenData> result = new ApiResultObject<DungLH.Util.Token.Core.TokenData>(null, false);
             try
             {
-                MyUtil.Token.Core.TokenData resultData = null;
+                DungLH.Util.Token.Core.TokenData resultData = null;
                 new TokenGetAuthenticatedByAddress(param).Run(actionContext, ref resultData);
                 result = this.PackResult(resultData);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
 
-        public ApiResultObject<MyUtil.Token.Core.CredentialData> GetCredentialData(HttpActionContext actionContext)
+        public ApiResultObject<DungLH.Util.Token.Core.CredentialData> GetCredentialData(HttpActionContext actionContext)
         {
-            ApiResultObject<MyUtil.Token.Core.CredentialData> result = new ApiResultObject<MyUtil.Token.Core.CredentialData>(null, false);
+            ApiResultObject<DungLH.Util.Token.Core.CredentialData> result = new ApiResultObject<DungLH.Util.Token.Core.CredentialData>(null, false);
             try
             {
-                MyUtil.Token.Core.CredentialData resultData = null;
+                DungLH.Util.Token.Core.CredentialData resultData = null;
                 new TokenGetCredentialData(param).Run(actionContext, ref resultData);
                 result = this.PackResult(resultData);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
 
-        public ApiResultObject<bool> SetCredentialData(HttpActionContext actionContext, MyUtil.Token.Core.CredentialData credentialData)
+        public ApiResultObject<bool> SetCredentialData(HttpActionContext actionContext, DungLH.Util.Token.Core.CredentialData credentialData)
         {
             ApiResultObject<bool> result = new ApiResultObject<bool>(false, false);
             try
@@ -129,7 +129,7 @@ namespace AAS.BusinessManager.Token
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }
@@ -144,7 +144,7 @@ namespace AAS.BusinessManager.Token
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
             }
             return result;
         }

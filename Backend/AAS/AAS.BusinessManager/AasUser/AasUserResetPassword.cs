@@ -1,7 +1,7 @@
 ﻿using AAS.EFMODEL.DataModels;
 using AutoMapper;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace AAS.BusinessManager.AasUser
                 {
                     Mapper.CreateMap<User, User>();
                     User beforeUpdate = Mapper.Map<User>(raw);
-                    raw.Password = new MyUtil.Token.Password.PasswordManager().HashPassword(raw.Loginname, raw.Salt, raw.Loginname);
+                    raw.Password = new DungLH.Util.Token.Password.PasswordManager().HashPassword(raw.Loginname, raw.Salt, raw.Loginname);
                     if (!this.aasUserUpdate.Update(raw, beforeUpdate))
                     {
                         throw new Exception("Reset passwod that bai");
@@ -50,7 +50,7 @@ namespace AAS.BusinessManager.AasUser
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 param.HasException = true;
                 result = false;
             }

@@ -5,8 +5,8 @@ using AAS.GetManager.AasApplication;
 using AAS.GetManager.AasApplicationRole;
 using AAS.GetManager.AasUserRole;
 using AAS.SDO;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ namespace AAS.BusinessManager.Token.Login
                 valid = valid && userChecker.IsUnLock(raw);
                 if (valid)
                 {
-                    if (!new MyUtil.Token.Password.PasswordManager().CheckPassword(raw.Password, data.Password, raw.Salt, data.Loginname))
+                    if (!new DungLH.Util.Token.Password.PasswordManager().CheckPassword(raw.Password, data.Password, raw.Salt, data.Loginname))
                     {
                         MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.Common_TaiKhoanHoacMatKhauKhongChinhXac);
                         throw new Exception("Tai khoa hoac mat khau khong chinh xac");
@@ -85,7 +85,7 @@ namespace AAS.BusinessManager.Token.Login
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;

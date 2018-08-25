@@ -20,7 +20,7 @@ namespace AAS.API
                 {
                     ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 };
-                MyUtil.CommonLogging.LogSystem.Info("Application_Start.");
+                DungLH.Util.CommonLogging.LogSystem.Info("Application_Start.");
 
                 AreaRegistration.RegisterAllAreas();
 
@@ -30,13 +30,13 @@ namespace AAS.API
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error("Application_End", ex);
+                DungLH.Util.CommonLogging.LogSystem.Error("Application_End", ex);
             }
         }
 
         protected void Application_End()
         {
-            MyUtil.CommonLogging.LogSystem.Info("Application_End.");
+            DungLH.Util.CommonLogging.LogSystem.Info("Application_End.");
         }
     }
 }

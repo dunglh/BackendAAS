@@ -2,7 +2,7 @@
 using AAS.BusinessManager.Token;
 using AAS.SDO;
 using AOS.API.Base;
-using MyUtil.Core;
+using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +22,12 @@ namespace AAS.API.Controllers
             try
             {
                 TokenManager mng = new TokenManager();
-                ApiResultObject<MyUtil.Token.Core.TokenData> result = mng.Login(this.ActionContext);
+                ApiResultObject<DungLH.Util.Token.Core.TokenData> result = mng.Login(this.ActionContext);
                 return new ApiResult(result, this.ActionContext);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -39,12 +39,12 @@ namespace AAS.API.Controllers
             try
             {
                 TokenManager mng = new TokenManager();
-                ApiResultObject<MyUtil.Token.Core.TokenData> result = mng.GetAuthenticated(this.ActionContext);
+                ApiResultObject<DungLH.Util.Token.Core.TokenData> result = mng.GetAuthenticated(this.ActionContext);
                 return new ApiResult(result, this.ActionContext);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -56,12 +56,12 @@ namespace AAS.API.Controllers
             try
             {
                 TokenManager mng = new TokenManager();
-                ApiResultObject<MyUtil.Token.Core.TokenData> result = mng.GetAuthenticateByAddress(this.ActionContext);
+                ApiResultObject<DungLH.Util.Token.Core.TokenData> result = mng.GetAuthenticateByAddress(this.ActionContext);
                 return new ApiResult(result, this.ActionContext);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -73,12 +73,12 @@ namespace AAS.API.Controllers
             try
             {
                 TokenManager mng = new TokenManager();
-                ApiResultObject<MyUtil.Token.Core.CredentialData> result = mng.GetCredentialData(this.ActionContext);
+                ApiResultObject<DungLH.Util.Token.Core.CredentialData> result = mng.GetCredentialData(this.ActionContext);
                 return new ApiResult(result, this.ActionContext);
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -96,14 +96,14 @@ namespace AAS.API.Controllers
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
 
         [HttpPost]
         [ActionName("SetCredentialData")]
-        public ApiResult SetCredentialData(MyUtil.Token.Core.CredentialData credentialData)
+        public ApiResult SetCredentialData(DungLH.Util.Token.Core.CredentialData credentialData)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace AAS.API.Controllers
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -130,7 +130,7 @@ namespace AAS.API.Controllers
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }
@@ -147,7 +147,7 @@ namespace AAS.API.Controllers
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 return null;
             }
         }

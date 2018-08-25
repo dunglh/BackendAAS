@@ -5,8 +5,8 @@ using AAS.GetManager.AasApplication;
 using AAS.GetManager.AasApplicationRole;
 using AAS.GetManager.AasUserRole;
 using AAS.SDO;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,7 +77,7 @@ namespace AAS.BusinessManager.Token.Authorize
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;

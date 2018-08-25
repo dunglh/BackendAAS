@@ -30,14 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MyUtil.Backend.MANAGER">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Backend.MANAGER\MyUtil.Backend.MANAGER.dll</HintPath>
+    <Reference Include="DungLH.Util.Backend.MANAGER">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Backend.MANAGER\DungLH.Util.Backend.MANAGER.dll</HintPath>
     </Reference>
-    <Reference Include="MyUtil.CommonLogging">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.CommonLogging\MyUtil.CommonLogging.dll</HintPath>
+    <Reference Include="DungLH.Util.CommonLogging">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.CommonLogging\DungLH.Util.CommonLogging.dll</HintPath>
     </Reference>
-    <Reference Include="MyUtil.Core">
-      <HintPath>..\..\..\Release\LibraryUtil\MyUtil.Core\MyUtil.Core.dll</HintPath>
+    <Reference Include="DungLH.Util.Core">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Core\DungLH.Util.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

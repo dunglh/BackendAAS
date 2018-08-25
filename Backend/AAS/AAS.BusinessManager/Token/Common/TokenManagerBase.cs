@@ -8,9 +8,9 @@ using AAS.GetManager.AasUser;
 using AAS.SDO;
 using AAS.Util;
 using AutoMapper;
-using MyUtil.CommonLogging;
-using MyUtil.Core;
-using MyUtil.Token.Password;
+using DungLH.Util.CommonLogging;
+using DungLH.Util.Core;
+using DungLH.Util.Token.Password;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace AAS.BusinessManager.Token.Common
 {
     class TokenManagerBase
     {
-        internal bool CreateCredentialData(MyUtil.Token.Core.CredentialData credentialData, CommonParam commonParam)
+        internal bool CreateCredentialData(DungLH.Util.Token.Core.CredentialData credentialData, CommonParam commonParam)
         {
             bool result = false;
             try
@@ -36,19 +36,19 @@ namespace AAS.BusinessManager.Token.Common
                 data.TokenCode = credentialData.TokenCode;
                 if (!new AasCredentialDataCreate(commonParam).Create(data))
                 {
-                    throw new Exception("Insert CredentialData that bai \n" + MyUtil.CommonLogging.LogUtil.TraceData("credentialData", credentialData));
+                    throw new Exception("Insert CredentialData that bai \n" + DungLH.Util.CommonLogging.LogUtil.TraceData("credentialData", credentialData));
                 }
                 result = true;
             }
             catch (ArgumentNullException ex)
             {
                 BugUtil.SetBugCode(commonParam, LibraryBug.Bug.Enum.Common__ThieuThongTinBatBuoc);
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;
@@ -95,12 +95,12 @@ namespace AAS.BusinessManager.Token.Common
             catch (ArgumentNullException ex)
             {
                 BugUtil.SetBugCode(commonParam, LibraryBug.Bug.Enum.Common__ThieuThongTinBatBuoc);
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;
@@ -135,12 +135,12 @@ namespace AAS.BusinessManager.Token.Common
             catch (ArgumentNullException ex)
             {
                 BugUtil.SetBugCode(commonParam, LibraryBug.Bug.Enum.Common__ThieuThongTinBatBuoc);
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;
@@ -171,20 +171,20 @@ namespace AAS.BusinessManager.Token.Common
             catch (ArgumentNullException ex)
             {
                 BugUtil.SetBugCode(commonParam, LibraryBug.Bug.Enum.Common__ThieuThongTinBatBuoc);
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;
         }
 
-        internal MyUtil.Token.Core.CredentialData GetCredentialData(string backendCode, string tokenCode, string dataKey, CommonParam commonParam)
+        internal DungLH.Util.Token.Core.CredentialData GetCredentialData(string backendCode, string tokenCode, string dataKey, CommonParam commonParam)
         {
-            MyUtil.Token.Core.CredentialData result = null;
+            DungLH.Util.Token.Core.CredentialData result = null;
             try
             {
                 if (String.IsNullOrWhiteSpace(backendCode)) throw new ArgumentNullException("backendCode");
@@ -202,7 +202,7 @@ namespace AAS.BusinessManager.Token.Common
                     throw new Exception("Khong tim thay CredentialData tuong ung");
                 }
                 CredentialData data = listData.FirstOrDefault();
-                result = new MyUtil.Token.Core.CredentialData();
+                result = new DungLH.Util.Token.Core.CredentialData();
                 result.BackendCode = data.BackendCode;
                 result.Data = data.Data;
                 result.DataKey = data.DataKey;
@@ -211,20 +211,20 @@ namespace AAS.BusinessManager.Token.Common
             catch (ArgumentNullException ex)
             {
                 BugUtil.SetBugCode(commonParam, LibraryBug.Bug.Enum.Common__ThieuThongTinBatBuoc);
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = null;
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = null;
             }
             return result;
         }
 
-        internal MyUtil.Token.Core.UserData GetValidUserData(string loginname, string password, string applicationCode, CommonParam commonParam)
+        internal DungLH.Util.Token.Core.UserData GetValidUserData(string loginname, string password, string applicationCode, CommonParam commonParam)
         {
-            MyUtil.Token.Core.UserData result = null;
+            DungLH.Util.Token.Core.UserData result = null;
             try
             {
                 AasLoginSDO loginSDO = new AasLoginSDO();
@@ -238,7 +238,7 @@ namespace AAS.BusinessManager.Token.Common
                 }
                 else
                 {
-                    result = new MyUtil.Token.Core.UserData();
+                    result = new DungLH.Util.Token.Core.UserData();
                     result.ApplicationCode = applicationCode;
                     result.Email = user.Email;
                     result.Loginname = user.Loginname;
@@ -248,7 +248,7 @@ namespace AAS.BusinessManager.Token.Common
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = null;
             }
             return result;
@@ -274,7 +274,7 @@ namespace AAS.BusinessManager.Token.Common
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;

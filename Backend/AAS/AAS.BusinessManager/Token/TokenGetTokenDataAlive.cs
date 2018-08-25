@@ -1,8 +1,8 @@
 ﻿using AAS.BusinessManager.Token.Common;
 using AAS.SDO;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
-using MyUtil.Token.Authenticate;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
+using DungLH.Util.Token.Authenticate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +66,7 @@ namespace AAS.BusinessManager.Token
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 param.HasException = true;
                 resultData = null;
                 result = false;

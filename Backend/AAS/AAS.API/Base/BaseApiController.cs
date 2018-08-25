@@ -1,5 +1,5 @@
-﻿using MyUtil.CommonLogging;
-using MyUtil.Core;
+﻿using DungLH.Util.CommonLogging;
+using DungLH.Util.Core;
 using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -18,7 +18,7 @@ namespace AAS.API.Base
             ApiResultObject<T> result = new ApiResultObject<T>();
             try
             {
-                result.SetValue(resultData, Util.DecisionApiResult(resultData), commonParam);
+                result.SetValue(resultData, ResultUtil.DecisionApiResult(resultData), commonParam);
             }
             catch (Exception ex)
             {

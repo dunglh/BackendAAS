@@ -1,7 +1,7 @@
 ﻿using AAS.BusinessManager.Token.Common;
-using MyUtil.Backend.MANAGER;
-using MyUtil.Core;
-using MyUtil.Token.Authenticate;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.Core;
+using DungLH.Util.Token.Authenticate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace AAS.BusinessManager.Token
             this.authenTokenManager = new AuthenticateTokenManager(this.tokenManagerBase.GetValidUserData, this.tokenManagerBase.GetCredentialData, this.tokenManagerBase.IsGrantedUser, this.tokenManagerBase.CreateCredentialData, this.tokenManagerBase.UpdateUserPassword, this.tokenManagerBase.DeleteCredentialData, this.tokenManagerBase.DeleteAllCredentialData);
         }
 
-        internal bool Run(HttpActionContext actionContext, ref MyUtil.Token.Core.TokenData resultData)
+        internal bool Run(HttpActionContext actionContext, ref DungLH.Util.Token.Core.TokenData resultData)
         {
             bool result = false;
             try
@@ -42,12 +42,12 @@ namespace AAS.BusinessManager.Token
                 resultData = this.authenTokenManager.GetAuthenticatedByAddress(actionContext, param);
                 if (resultData == null)
                 {
-                    MyUtil.CommonLogging.LogSystem.Error("GetAuthenticatedByAddress that bai");
+                    DungLH.Util.CommonLogging.LogSystem.Error("GetAuthenticatedByAddress that bai");
                 }
             }
             catch (Exception ex)
             {
-                MyUtil.CommonLogging.LogSystem.Error(ex);
+                DungLH.Util.CommonLogging.LogSystem.Error(ex);
                 result = false;
             }
             return result;

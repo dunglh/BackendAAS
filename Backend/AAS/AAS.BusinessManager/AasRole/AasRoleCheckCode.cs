@@ -1,7 +1,7 @@
 using AAS.BusinessManager.Base;
 using AAS.DAO.Base;
-using MyUtil.Backend.MANAGER;
-using MyUtil.CommonLogging;
+using DungLH.Util.Backend.MANAGER;
+using DungLH.Util.CommonLogging;
 using System;
 using System.Collections.Generic;
 

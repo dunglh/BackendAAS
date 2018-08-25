@@ -1,4 +1,4 @@
-﻿using MyUtil.Core;
+﻿using DungLH.Util.Core;
 
 namespace AAS.API.Base
 {

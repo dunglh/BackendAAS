@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AAA.Main.Properties
+namespace AAA.Plugin.AasUser.Properties
 {
 
 
