@@ -50,10 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DungLH.Util.Common.WebApiConsumer\DungLH.Util.Common.WebApiConsumer.csproj">
-      <Project>{b170a3b5-0234-4893-895c-a86ca1b97d22}</Project>
-      <Name>DungLH.Util.Common.WebApiConsumer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DungLH.Util.CommonLogging\DungLH.Util.CommonLogging.csproj">
       <Project>{a4a0d936-618b-4b1f-b8eb-1e815de2f799}</Project>
       <Name>DungLH.Util.CommonLogging</Name>
@@ -61,6 +57,10 @@
     <ProjectReference Include="..\DungLH.Util.Core\DungLH.Util.Core.csproj">
       <Project>{9b4e64b7-a189-44bd-a9f4-a0a0aec8f136}</Project>
       <Name>DungLH.Util.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DungLH.Util.WebApiConsumer\DungLH.Util.WebApiConsumer.csproj">
+      <Project>{b170a3b5-0234-4893-895c-a86ca1b97d22}</Project>
+      <Name>DungLH.Util.WebApiConsumer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
