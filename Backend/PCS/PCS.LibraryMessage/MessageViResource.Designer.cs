@@ -104,5 +104,50 @@ namespace PCS.LibraryMessage {
                 return ResourceManager.GetString("Common__ThieuThongTinBatBuoc", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dự án chưa có bài đăng nào chưa duyệt.
+        /// </summary>
+        internal static string PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet {
+            get {
+                return ResourceManager.GetString("PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dự án không có bài đăng nào hợp lệ.
+        /// </summary>
+        internal static string PcsPost__DuAnKhongCoBaiDangNaoHopLe {
+            get {
+                return ResourceManager.GetString("PcsPost__DuAnKhongCoBaiDangNaoHopLe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tồn tại bài đăng không thuộc dự án.
+        /// </summary>
+        internal static string PcsPost__TonTaiBaiDangKhongThuocDuAn {
+            get {
+                return ResourceManager.GetString("PcsPost__TonTaiBaiDangKhongThuocDuAn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trạng thái bài đăng không hợp lệ.
+        /// </summary>
+        internal static string PcsPost__TrangThaiBaiDangKhongHopLe {
+            get {
+                return ResourceManager.GetString("PcsPost__TrangThaiBaiDangKhongHopLe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dự án: {0} đã kết thúc.
+        /// </summary>
+        internal static string PcsProject__DuAnDaKetThuc {
+            get {
+                return ResourceManager.GetString("PcsProject__DuAnDaKetThuc", resourceCulture);
+            }
+        }
     }
 }

@@ -77,6 +77,66 @@ namespace PCS.GetManager.PcsPost
                 }
                 #endregion                
 
+                if (this.ProjectId.HasValue)
+                {
+                    listExpression.Add(o => o.ProjectId == this.ProjectId.Value);
+                }
+                if (this.ProjectIds != null)
+                {
+                    listExpression.Add(o => this.ProjectIds.Contains(o.ProjectId));
+                }
+                if (this.AddressId.HasValue)
+                {
+                    listExpression.Add(o => o.AddressId == this.AddressId.Value);
+                }
+                if (this.AddressIds != null)
+                {
+                    listExpression.Add(o => this.AddressIds.Contains(o.AddressId));
+                }
+                if (this.PostSttId.HasValue)
+                {
+                    listExpression.Add(o => o.PostSttId == this.PostSttId.Value);
+                }
+                if (this.PostSttIds != null)
+                {
+                    listExpression.Add(o => this.PostSttIds.Contains(o.PostSttId));
+                }
+                if (this.PostTimeFrom.HasValue)
+                {
+                    listExpression.Add(o => o.PostTime.Value >= this.PostTimeFrom.Value);
+                }
+                if (this.PostTimeTo.HasValue)
+                {
+                    listExpression.Add(o => o.PostTime.Value <= this.PostTimeTo.Value);
+                }
+                if (this.ApprovalTimeFrom.HasValue)
+                {
+                    listExpression.Add(o => o.ApprovalTime.Value >= this.ApprovalTimeFrom.Value);
+                }
+                if (this.ApprovalTimeTo.HasValue)
+                {
+                    listExpression.Add(o => o.ApprovalTime.Value <= this.ApprovalTimeTo.Value);
+                }
+                if (!String.IsNullOrWhiteSpace(this.ApprovalLoginnameExact))
+                {
+                    listExpression.Add(o => o.ApprovalLoginname == this.ApprovalLoginnameExact);
+                }
+                if (!String.IsNullOrWhiteSpace(this.KeyWord))
+                {
+                    this.KeyWord = this.KeyWord.ToLower().Trim();
+                    listExpression.Add(o => o.ApprovalLoginname.ToLower().Contains(this.KeyWord)
+                    || o.ApprovalNote.ToLower().Contains(this.KeyWord)
+                    || o.ApprovalUsername.ToLower().Contains(this.KeyWord)
+                    || o.Author.ToLower().Contains(this.KeyWord)
+                    || o.Content.ToLower().Contains(this.KeyWord)
+                    || o.Creator.ToLower().Contains(this.KeyWord)
+                    || o.Modifier.ToLower().Contains(this.KeyWord)
+                    || o.PostType.ToLower().Contains(this.KeyWord)
+                    || o.Status.ToLower().Contains(this.KeyWord)
+                    || o.Tags.ToLower().Contains(this.KeyWord)
+                    || o.Title.ToLower().Contains(this.KeyWord));
+                }
+
                 search.listPostExpression.AddRange(listExpression);
                 search.OrderField = this.OrderField;
                 search.OrderDirection = this.OrderDirection;

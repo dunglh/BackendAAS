@@ -31,6 +31,10 @@ namespace PCS.BusinessManager.PcsAddress
             try
             {
                 if (data == null) throw new ArgumentNullException("data");
+                if (String.IsNullOrWhiteSpace(data.BaseUrl)) throw new ArgumentNullException("data.BaseUrl");
+                if (String.IsNullOrWhiteSpace(data.Loginname)) throw new ArgumentNullException("data.Loginname");
+                if (String.IsNullOrWhiteSpace(data.Password)) throw new ArgumentNullException("data.Password");
+                if (data.ProjectId <= 0) throw new ArgumentNullException("data.ProjectId");
             }
             catch (ArgumentNullException ex)
             {

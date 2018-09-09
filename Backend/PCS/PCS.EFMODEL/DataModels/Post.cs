@@ -33,6 +33,7 @@ namespace PCS.EFMODEL.DataModels
         public string ApprovalLoginname { get; set; }
         public string ApprovalUsername { get; set; }
         public Nullable<long> ApprovalTime { get; set; }
+        public string ApprovalNote { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Project Project { get; set; }

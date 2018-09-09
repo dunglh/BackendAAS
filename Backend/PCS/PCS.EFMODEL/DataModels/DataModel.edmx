@@ -57,6 +57,7 @@
           <Property Name="ApprovalLoginname" Type="varchar" MaxLength="50" />
           <Property Name="ApprovalUsername" Type="varchar" MaxLength="100" />
           <Property Name="ApprovalTime" Type="int8" />
+          <Property Name="ApprovalNote" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -236,6 +237,7 @@ warning 6013: The table/view 'PCS.public.ViewPost' does not have a primary key d
           <Property Name="ApprovalLoginname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ApprovalUsername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ApprovalTime" Type="Int64" />
+          <Property Name="ApprovalNote" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Address" Relationship="Self.Post_Fk2" FromRole="Post" ToRole="Address" />
           <NavigationProperty Name="Project" Relationship="Self.Post_Fk1" FromRole="Post" ToRole="Project" />
         </EntityType>
@@ -369,6 +371,7 @@ warning 6013: The table/view 'PCS.public.ViewPost' does not have a primary key d
                 <ScalarProperty Name="ApprovalLoginname" ColumnName="ApprovalLoginname" />
                 <ScalarProperty Name="ApprovalUsername" ColumnName="ApprovalUsername" />
                 <ScalarProperty Name="ApprovalTime" ColumnName="ApprovalTime" />
+                <ScalarProperty Name="ApprovalNote" ColumnName="ApprovalNote" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -31,6 +31,8 @@ namespace PCS.BusinessManager.PcsEmployee
             try
             {
                 if (data == null) throw new ArgumentNullException("data");
+                if (String.IsNullOrWhiteSpace(data.Loginname)) throw new ArgumentNullException("data.Loginname");
+                if (data.RoleId <= 0 || data.RoleId > 3) throw new ArgumentNullException("data.RoleId");
             }
             catch (ArgumentNullException ex)
             {

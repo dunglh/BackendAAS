@@ -14,6 +14,11 @@
                     case Enum.Common__DuLieuDangBiKhoa: message = MessageViResource.Common__DuLieuDangBiKhoa; break;
                     case Enum.Common__LoiCauHinhHeThong: message = MessageViResource.Common__LoiCauHinhHeThong; break;
                     case Enum.Common__DuLieuDangMoKhoa: message = MessageViResource.Common__DuLieuDangMoKhoa; break;
+                    case Enum.PcsProject__DuAnDaKetThuc: message = MessageViResource.PcsProject__DuAnDaKetThuc; break;
+                    case Enum.PcsPost__TrangThaiBaiDangKhongHopLe: message = MessageViResource.PcsPost__TrangThaiBaiDangKhongHopLe; break;
+                    case Enum.PcsPost__TonTaiBaiDangKhongThuocDuAn: message = MessageViResource.PcsPost__TonTaiBaiDangKhongThuocDuAn; break;
+                    case Enum.PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet: message = MessageViResource.PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet; break;
+                    case Enum.PcsPost__DuAnKhongCoBaiDangNaoHopLe: message = MessageViResource.PcsPost__DuAnKhongCoBaiDangNaoHopLe; break;
 
                     default: message = defaultViMessage; break;
                 }

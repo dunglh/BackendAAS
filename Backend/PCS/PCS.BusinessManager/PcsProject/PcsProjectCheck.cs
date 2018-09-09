@@ -31,6 +31,9 @@ namespace PCS.BusinessManager.PcsProject
             try
             {
                 if (data == null) throw new ArgumentNullException("data");
+                if (String.IsNullOrWhiteSpace(data.ProjectCode)) throw new ArgumentNullException("data.ProjectCode");
+                if (String.IsNullOrWhiteSpace(data.ProjectName)) throw new ArgumentNullException("data.ProjectName");
+                if (data.ProjectSttId <= 0 || data.ProjectSttId > 2) throw new ArgumentNullException("data.ProjectSttId");
             }
             catch (ArgumentNullException ex)
             {
@@ -291,6 +294,32 @@ namespace PCS.BusinessManager.PcsProject
                     {
                         MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.Common__DuLieuDangBiKhoa);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                valid = false;
+                param.HasException = true;
+            }
+            return valid;
+        }
+
+        /// <summary>
+        /// Kiem tra du lieu co o trang thai unlock (su dung doi tuong)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        internal bool IsUnFinish(Project data)
+        {
+            bool valid = true;
+            try
+            {
+                if (data.ProjectSttId == ProjectSttConstant.PROJECT_STT_ID__FINISH)
+                {
+                    valid = false;
+                    MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.PcsProject__DuAnDaKetThuc, data.ProjectName);
                 }
             }
             catch (Exception ex)

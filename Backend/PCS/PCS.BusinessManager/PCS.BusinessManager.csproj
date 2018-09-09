@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="DungLH.Util.Backend.MANAGER">
       <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Backend.MANAGER\DungLH.Util.Backend.MANAGER.dll</HintPath>
     </Reference>
@@ -71,12 +74,14 @@
     <Compile Include="PcsEmployee\PcsEmployeeManager.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeTruncate.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeUpdate.cs" />
+    <Compile Include="PcsPost\Approve\PcsPostApprove.cs" />
     <Compile Include="PcsPost\PcsPostCheck.cs" />
-    <Compile Include="PcsPost\PcsPostCreate.cs" />
-    <Compile Include="PcsPost\PcsPostLock.cs" />
+    <Compile Include="PcsPost\Create\PcsPostCreate.cs" />
+    <Compile Include="PcsPost\Lock\PcsPostLock.cs" />
     <Compile Include="PcsPost\PcsPostManager.cs" />
-    <Compile Include="PcsPost\PcsPostTruncate.cs" />
-    <Compile Include="PcsPost\PcsPostUpdate.cs" />
+    <Compile Include="PcsPost\Reject\PcsPostReject.cs" />
+    <Compile Include="PcsPost\Truncate\PcsPostTruncate.cs" />
+    <Compile Include="PcsPost\Update\PcsPostUpdate.cs" />
     <Compile Include="PcsProject\PcsProjectCheck.cs" />
     <Compile Include="PcsProject\PcsProjectCheckCode.cs" />
     <Compile Include="PcsProject\PcsProjectCreate.cs" />
@@ -111,10 +116,17 @@
       <Project>{ff354c10-b482-4698-8cd0-73be48bd281c}</Project>
       <Name>PCS.LibraryMessage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PCS.SDO\PCS.SDO.csproj">
+      <Project>{b59efa66-adb9-4d8d-9f15-9bcbe31cec2d}</Project>
+      <Name>PCS.SDO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PCS.UTILITY\PCS.UTILITY.csproj">
       <Project>{e1f26085-2144-4189-9e49-1641626673b0}</Project>
       <Name>PCS.UTILITY</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PcsPost\Post\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

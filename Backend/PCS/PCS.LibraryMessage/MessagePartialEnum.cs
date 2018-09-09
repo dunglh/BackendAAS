@@ -8,7 +8,12 @@
             Common__MaDaTonTaiTrenHeThong,
             Common__DuLieuDangMoKhoa,
             Common__LoiCauHinhHeThong,
-            Common__DuLieuDangBiKhoa
+            Common__DuLieuDangBiKhoa,
+            PcsProject__DuAnDaKetThuc,
+            PcsPost__TrangThaiBaiDangKhongHopLe,
+            PcsPost__TonTaiBaiDangKhongThuocDuAn,
+            PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet,
+            PcsPost__DuAnKhongCoBaiDangNaoHopLe
         }
     }
 }

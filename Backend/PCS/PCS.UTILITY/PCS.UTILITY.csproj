@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="PostSttConstant.cs" />
+    <Compile Include="ProjectSttConstant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleConstant.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

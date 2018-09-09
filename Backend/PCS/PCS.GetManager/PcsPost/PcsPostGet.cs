@@ -14,7 +14,7 @@ namespace PCS.GetManager.PcsPost
     partial class PcsPostGet : BusinessBase
     {
         internal PcsPostGet()
-            :base()
+            : base()
         {
 
         }
@@ -23,7 +23,7 @@ namespace PCS.GetManager.PcsPost
             : base(paramGet)
         {
 
-        }        
+        }
 
         public List<Post> Get(PcsPostFilterQuery filter)
         {
@@ -65,6 +65,41 @@ namespace PCS.GetManager.PcsPost
                 param.HasException = true;
                 return null;
             }
+        }
+
+        internal List<Post> GetByIds(List<long> ids)
+        {
+            try
+            {
+                if (ids != null)
+                {
+                    PcsPostFilterQuery filter = new PcsPostFilterQuery();
+                    filter.Ids = ids;
+                    return this.Get(filter);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+            }
+            return null;
+        }
+
+        internal List<Post> GetByProjectId(long projectId)
+        {
+            try
+            {
+                PcsPostFilterQuery filter = new PcsPostFilterQuery();
+                filter.ProjectId = projectId;
+                return this.Get(filter);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+            }
+            return null;
         }
     }
 }

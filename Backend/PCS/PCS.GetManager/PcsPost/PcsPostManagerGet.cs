@@ -83,6 +83,38 @@ namespace PCS.GetManager.PcsPost
             return result;
         }
 
+        public List<Post> GetByIds(List<long> ids)
+        {
+            List<Post> result = null;
+            try
+            {
+                result = new PcsPostGet(param).GetByIds(ids);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
+        public List<Post> GetByProjectId(long projectId)
+        {
+            List<Post> result = null;
+            try
+            {
+                result = new PcsPostGet(param).GetByProjectId(projectId);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
         public ApiResultObject<List<ViewPost>> GetViewResult(PcsPostViewFilter filter)
         {
             ApiResultObject<List<ViewPost>> result = null;
