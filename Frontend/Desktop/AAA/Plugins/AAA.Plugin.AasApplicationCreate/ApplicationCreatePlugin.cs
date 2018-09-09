@@ -13,7 +13,7 @@ namespace AAA.Plugin.AasApplicationCreate
     {
         public ApplicationCreatePlugin()
         {
-            this._pName = "AAA.Plugin.ApplicationCreatePlugin";
+            this._pName = "AAA.Plugin.AasApplicationCreate";
             this._pDescription = "Form Create Application (Authenticate Access System)";
         }
 

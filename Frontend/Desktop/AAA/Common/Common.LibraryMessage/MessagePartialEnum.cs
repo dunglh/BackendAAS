@@ -8,8 +8,8 @@
             Common_XuLyThatBai,
             Common_TruongDuLieuBatBuoc,
             Common_ThongBao,
-            Common_CanhBao
-
+            Common_CanhBao,
+            Common_ThieuTruongThongTinBatBuoc
         }
     }
 }

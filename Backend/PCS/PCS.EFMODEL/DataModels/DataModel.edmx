@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataModels.Store" Provider="Npgsql" ProviderManifestToken="10.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="BaseUrl" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Loginname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BlogId" Type="int4" />
+          <Property Name="ProjectId" Type="int8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="Loginname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="ProjectId" Type="int8" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PostTime" Type="int8" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="PostType" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="text" Nullable="false" />
+          <Property Name="Author" Type="varchar" MaxLength="100" />
+          <Property Name="Tags" Type="varchar" MaxLength="1000" />
+          <Property Name="AddressId" Type="int8" Nullable="false" />
+          <Property Name="PostSttId" Type="int4" Nullable="false" />
+          <Property Name="ApprovalLoginname" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovalUsername" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovalTime" Type="int8" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int8" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="ProjectCode" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="ProjectSttId" Type="int8" Nullable="false" />
+          <Property Name="FinishTime" Type="int8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PCS.public.ViewAddress' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ViewAddress">
+          <Property Name="Id" Type="int8" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="BaseUrl" Type="varchar" MaxLength="250" />
+          <Property Name="Loginname" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="BlogId" Type="int4" />
+          <Property Name="ProjectId" Type="int8" />
+          <Property Name="ProjectCode" Type="varchar" MaxLength="6" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="500" />
+          <Property Name="ProjectSttId" Type="int8" />
+          <Property Name="FinishTime" Type="int8" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PCS.public.ViewPost' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ViewPost">
+          <Property Name="Id" Type="int8" />
+          <Property Name="CreateTime" Type="int8" />
+          <Property Name="ModifyTime" Type="int8" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" />
+          <Property Name="Modifier" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int2" />
+          <Property Name="ProjectId" Type="int8" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
+          <Property Name="PostTime" Type="int8" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="PostType" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="text" />
+          <Property Name="Author" Type="varchar" MaxLength="100" />
+          <Property Name="Tags" Type="varchar" MaxLength="1000" />
+          <Property Name="AddressId" Type="int8" />
+          <Property Name="PostSttId" Type="int4" />
+          <Property Name="ApprovalLoginname" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovalUsername" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovalTime" Type="int8" />
+          <Property Name="ProjectCode" Type="varchar" MaxLength="6" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="500" />
+          <Property Name="ProjectSttId" Type="int8" />
+          <Property Name="FinishTime" Type="int8" />
+          <Property Name="BaseUrl" Type="varchar" MaxLength="250" />
+          <Property Name="Loginname" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="BlogId" Type="int4" />
+        </EntityType>-->
+        <Association Name="Address_Fk1">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_Fk1">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_Fk2">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataModelsStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="public" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="public" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="public" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="Address_Fk1" Association="Self.Address_Fk1">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="Post_Fk1" Association="Self.Post_Fk1">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="Post_Fk2" Association="Self.Post_Fk2">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="Int64" />
+          <Property Name="ModifyTime" Type="Int64" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="BaseUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Loginname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlogId" Type="Int32" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="Self.Address_Fk1" FromRole="Address" ToRole="Project" />
+          <NavigationProperty Name="Posts" Relationship="Self.Post_Fk2" FromRole="Address" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="Int64" />
+          <Property Name="ModifyTime" Type="Int64" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="Loginname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="Int64" />
+          <Property Name="ModifyTime" Type="Int64" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostTime" Type="Int64" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AddressId" Type="Int64" Nullable="false" />
+          <Property Name="PostSttId" Type="Int32" Nullable="false" />
+          <Property Name="ApprovalLoginname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalUsername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalTime" Type="Int64" />
+          <NavigationProperty Name="Address" Relationship="Self.Post_Fk2" FromRole="Post" ToRole="Address" />
+          <NavigationProperty Name="Project" Relationship="Self.Post_Fk1" FromRole="Post" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="Int64" />
+          <Property Name="ModifyTime" Type="Int64" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Int16" />
+          <Property Name="ProjectCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectSttId" Type="Int64" Nullable="false" />
+          <Property Name="FinishTime" Type="Int64" />
+          <NavigationProperty Name="Addresses" Relationship="Self.Address_Fk1" FromRole="Project" ToRole="Address" />
+          <NavigationProperty Name="Posts" Relationship="Self.Post_Fk1" FromRole="Project" ToRole="Post" />
+        </EntityType>
+        <Association Name="Address_Fk1">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_Fk2">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Post_Fk1">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <AssociationSet Name="Address_Fk1" Association="Self.Address_Fk1">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="Post_Fk2" Association="Self.Post_Fk2">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="Post_Fk1" Association="Self.Post_Fk1">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelsStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="DataModels.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BaseUrl" ColumnName="BaseUrl" />
+                <ScalarProperty Name="Loginname" ColumnName="Loginname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="DataModels.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Loginname" ColumnName="Loginname" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="DataModels.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PostType" ColumnName="PostType" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="PostSttId" ColumnName="PostSttId" />
+                <ScalarProperty Name="ApprovalLoginname" ColumnName="ApprovalLoginname" />
+                <ScalarProperty Name="ApprovalUsername" ColumnName="ApprovalUsername" />
+                <ScalarProperty Name="ApprovalTime" ColumnName="ApprovalTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="DataModels.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectSttId" ColumnName="ProjectSttId" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

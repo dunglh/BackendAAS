@@ -36,27 +36,27 @@ namespace AAA.Plugin.AasUserCreate.View
                 if (e.Key == Key.Enter)
                 {
                     var element = sender as FrameworkElement;
-                    if (element.Name == "txtLoginname")
+                    if (element.Name == txtLoginname.Name)
                     {
                         this.txtUsername.Focus();
                         this.txtUsername.SelectAll();
                     }
-                    else if (element.Name == "txtUsername")
+                    else if (element.Name == txtUsername.Name)
                     {
                         this.txtPassword.Focus();
                         this.txtPassword.SelectAll();
                     }
-                    else if (element.Name == "txtPassword")
+                    else if (element.Name == txtPassword.Name)
                     {
                         this.txtEmail.Focus();
                         this.txtEmail.SelectAll();
                     }
-                    else if (element.Name == "txtEmail")
+                    else if (element.Name == txtEmail.Name)
                     {
                         this.txtPhone.Focus();
                         this.txtPhone.SelectAll();
                     }
-                    else if (element.Name == "txtPhone")
+                    else if (element.Name == txtPhone.Name)
                     {
                         SendKeys.Send(Key.Tab);
                     }

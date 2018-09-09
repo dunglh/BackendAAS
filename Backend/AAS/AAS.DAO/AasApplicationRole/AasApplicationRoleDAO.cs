@@ -1,5 +1,6 @@
 using AAS.DAO.StagingObject;
 using AAS.EFMODEL.DataModels;
+using AAS.EFMODEL.View;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using DungLH.Util.Repository;
@@ -104,7 +105,7 @@ namespace AAS.DAO.AasApplicationRole
                 result = false;
             }
             return result;
-        }        
+        }
 
         public bool Truncate(ApplicationRole data)
         {

@@ -85,7 +85,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Icon\" />
+    <Resource Include="Icon\user_lock_128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\user_lock_128.png" />
+    <Resource Include="Icon\user_lock_256.png" />
+    <Resource Include="Icon\user_lock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\lock_16.png" />
+    <Resource Include="Icon\unlock_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\first_16.png" />
+    <Resource Include="Icon\last_16.png" />
+    <Resource Include="Icon\next_16.png" />
+    <Resource Include="Icon\previous_16.png" />
+    <Resource Include="Icon\refresh_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,6 +14,7 @@
                     case Enum.Common_TruongDuLieuBatBuoc: message = MessageViResource.Common_TruongDuLieuBatBuoc; break;
                     case Enum.Common_ThongBao: message = MessageViResource.Common_ThongBao; break;
                     case Enum.Common_CanhBao: message = MessageViResource.Common_CanhBao; break;
+                    case Enum.Common_ThieuTruongThongTinBatBuoc: message = MessageViResource.Common_ThieuTruongThongTinBatBuoc; break;
 
                     default: message = defaultViMessage; break;
                 }

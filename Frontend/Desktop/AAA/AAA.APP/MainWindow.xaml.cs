@@ -23,6 +23,7 @@ namespace AAA.APP
         public MainWindow()
         {
             InitializeComponent();
+            Common.Consumer.BaseUri.LoadConfig();
         }
     }
 }

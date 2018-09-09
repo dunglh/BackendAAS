@@ -127,6 +127,8 @@
     <Compile Include="Base\ReflectionQueryable.cs" />
     <Compile Include="Base\StagingObjectBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sql\SqlDAO.cs" />
+    <Compile Include="Sql\SqlExecute.cs" />
     <Compile Include="StagingObject\AasApplicationRoleSO.cs" />
     <Compile Include="StagingObject\AasApplicationSO.cs" />
     <Compile Include="StagingObject\AasModuleRoleSO.cs" />

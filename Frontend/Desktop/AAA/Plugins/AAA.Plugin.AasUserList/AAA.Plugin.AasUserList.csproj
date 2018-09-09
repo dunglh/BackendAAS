@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{273EC265-60BF-47BE-AB3B-A3B28A9747ED}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>AAA.Plugin.AasUserList</RootNamespace>
+    <AssemblyName>AAA.Plugin.AasUserList</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AAS.EFMODEL">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\AAS\AAS.EFMODEL.dll</HintPath>
+    </Reference>
+    <Reference Include="AAS.Filter">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\AAS\AAS.Filter.dll</HintPath>
+    </Reference>
+    <Reference Include="AAS.URI">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\AAS\AAS.URI.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\..\..\Backend\AAS\packages\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.UC.Paging">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\UserControl\DungLH.UC.Paging\DungLH.UC.Paging.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Adapter">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.Adapter\DungLH.Util.Adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.CommonLogging">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.CommonLogging\DungLH.Util.CommonLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Core">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.Core\DungLH.Util.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.DateTime">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.DateTime\DungLH.Util.DateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Message">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.Message\DungLH.Util.Message.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Plugin">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.Plugin\DungLH.Util.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.WebApiConsumer">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.WebApiConsumer\DungLH.Util.WebApiConsumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.WpfCommon">
+      <HintPath>..\..\..\..\..\Release\LibraryUtil\DungLH.Util.WpfCommon\DungLH.Util.WpfCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\AasUserADO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Validate\LoginnameValidationRule.cs" />
+    <Compile Include="Validate\UsernameValidationRule.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
+    <Compile Include="View\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Consumer\Common.Consumer.csproj">
+      <Project>{52af4463-d6e1-442a-8d50-ca4ad6b4bc88}</Project>
+      <Name>Common.Consumer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.LibraryMessage\Common.LibraryMessage.csproj">
+      <Project>{7b4774ce-989a-4c25-84ca-b4c32c6a3d20}</Project>
+      <Name>Common.LibraryMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Resource\Common.Resource.csproj">
+      <Project>{bbe083d9-290f-433f-a582-43c99a61c8ef}</Project>
+      <Name>Common.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utility\Common.Utility.csproj">
+      <Project>{29a0ada8-edb8-4f0d-95af-3ba3b02a04a4}</Project>
+      <Name>Common.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="View\UserListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

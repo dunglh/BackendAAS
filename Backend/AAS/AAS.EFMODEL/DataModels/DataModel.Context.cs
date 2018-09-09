@@ -9,6 +9,7 @@
 
 namespace AAS.EFMODEL.DataModels
 {
+    using AAS.EFMODEL.View;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -24,7 +25,7 @@ namespace AAS.EFMODEL.DataModels
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Application> Applications { get; set; }
         public virtual DbSet<ApplicationRole> ApplicationRoles { get; set; }
         public virtual DbSet<CredentialData> CredentialDatas { get; set; }

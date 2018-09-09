@@ -13,5 +13,6 @@ namespace AAS.DAO.Base
         public static AasUser.AasUserDAO AasUserDAO { get { return (AasUser.AasUserDAO)Worker.Get<AasUser.AasUserDAO>(); } }
         public static AasUserRole.AasUserRoleDAO AasUserRoleDAO { get { return (AasUserRole.AasUserRoleDAO)Worker.Get<AasUserRole.AasUserRoleDAO>(); } }
         public static AasCredentialData.AasCredentialDataDAO AasCredentialDataDAO { get { return (AasCredentialData.AasCredentialDataDAO)Worker.Get<AasCredentialData.AasCredentialDataDAO>(); } }
+        public static Sql.SqlDAO SqlDAO { get { return (Sql.SqlDAO)Worker.Get<Sql.SqlDAO>(); } }
     }
 }

@@ -1,0 +1,260 @@
+﻿<UserControl x:Class="AAA.Plugin.AasUserList.View.UserListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AAA.Plugin.AasUserList.View"
+             xmlns:vm="clr-namespace:AAA.Plugin.AasUserList.ViewModel"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:util="clr-namespace:Common.Utility;assembly=Common.Utility"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:vl="clr-namespace:AAA.Plugin.AasUserList.Validate"
+             xmlns:ucP="clr-namespace:DungLH.UC.Paging;assembly=DungLH.UC.Paging"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{DynamicResource userListViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <vm:UserListViewModel x:Key="userListViewModel"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Common.Resource;component/Resource/LangResource.Vi.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Common.Resource;component/Template/ValidateTemplate.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtKeyWord" Text="{Binding Path=KeyWord}" VerticalAlignment="Center" Width="465">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Style.Resources>
+                                    <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <Label Content="{DynamicResource KeyWord}" Foreground="LightGray" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <Button Name="btnFind" Content="{DynamicResource ButtonFindCtrlF}" VerticalAlignment="Center" Margin="5,0,5,0" Height="20" Width="75" Command="{Binding BtnFindCommand}"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <DataGrid ItemsSource="{Binding ListUser}" AutoGenerateColumns="False" FrozenColumnCount="4">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Width="35" IsReadOnly="True" Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={util:RowToIndexConverter}}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="24">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btnChangeLock" ToolTip="{DynamicResource ChangeLock}" Command="{Binding BtnChangeLockCommand}" CommandParameter="{Binding Path=SelectedItem,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}">
+                                        <Image Source="{Binding imageLock}"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="{DynamicResource Loginname}" Binding="{Binding Loginname}" Width="100" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource Username}" Binding="{Binding Username}" Width="120" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource Email}" Binding="{Binding Email}" Width="90" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource Phone}" Binding="{Binding Mobile}" Width="75" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource Creator}" Binding="{Binding Creator}" Width="75" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource CreateTime}" Binding="{Binding CreateTimeStr}" Width="120" IsReadOnly="True">
+                            <DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource Modifier}" Binding="{Binding Modifier}" Width="75" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{DynamicResource ModifyTime}" Binding="{Binding ModifyTimeStr}" Width="120" IsReadOnly="True">
+                            <DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding GridRowSelectedCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Row="2" Margin="5,5,5,5">
+                <ucP:UCPaging Name="ucPaging" LoadDataEvent="ucPaging_LoadDataEvent"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="2,10,2,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{DynamicResource LblLoginname}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Maroon" Grid.Column="0" Grid.Row="0" Margin="0,0,5,0"/>
+                <TextBox Name="txtLoginname" PreviewKeyDown="Txt_PreviewKeyDown" VerticalAlignment="Center" CharacterCasing="Lower" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" Grid.Column="1" Grid.Row="0">
+                    <Binding Path="CurrentUser.Loginname">
+                        <Binding.ValidationRules>
+                            <vl:LoginnameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <TextBlock Text="{DynamicResource LblUsername}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Maroon" Grid.Column="0" Grid.Row="1" Margin="0,0,5,0"/>
+                <TextBox Name="txtUsername" PreviewKeyDown="Txt_PreviewKeyDown" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" Grid.Column="1" Grid.Row="1">
+                    <Binding Path="CurrentUser.Username">
+                        <Binding.ValidationRules>
+                            <vl:UsernameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <TextBlock Text="{DynamicResource LblPassword}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Maroon" Grid.Column="0" Grid.Row="2" Margin="0,0,5,0"/>
+                <PasswordBox util:PasswordBoxHelper.BindPassword="True" Name="txtPassword" PreviewKeyDown="Txt_PreviewKeyDown" PasswordChar="*" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+                    <util:PasswordBoxHelper.BoundPassword>
+                        <Binding Path="Password" UpdateSourceTrigger="PropertyChanged" Mode="OneWayToSource" ValidatesOnDataErrors="True">
+                        </Binding>
+                    </util:PasswordBoxHelper.BoundPassword>
+                    <PasswordBox.Style>
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="IsEnabled" Value="False"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=CurrentUser.Id}" Value="0">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </PasswordBox.Style>
+                </PasswordBox>
+                <TextBlock Text="{DynamicResource LblEmail}" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="3" Margin="0,0,5,0"/>
+                <TextBox Name="txtEmail" Text="{Binding CurrentUser.Email}" VerticalAlignment="Center" PreviewKeyDown="Txt_PreviewKeyDown" Grid.Column="1" Grid.Row="3"/>
+                <TextBlock Text="{DynamicResource LblPhone}" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Margin="0,0,5,0"/>
+                <TextBox Name="txtMobile" Text="{Binding CurrentUser.Mobile}" VerticalAlignment="Center" PreviewKeyDown="Txt_PreviewKeyDown" Grid.Column="1" Grid.Row="4"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,0,2,0">
+                <DockPanel HorizontalAlignment="Right">
+                    <Button Name="btnAdd" Content="{DynamicResource ButtonAddCtrlN}" HorizontalContentAlignment="Center" VerticalAlignment="Center" Width="80" Height="20" Command="{Binding BtnAddCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtLoginname}" Value="False"/>
+                                            <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtUsername}" Value="False"/>
+                                            <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtPassword}" Value="False"/>
+                                            <Condition Binding="{Binding Path=CurrentUser.Id}" Value="0"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnEdit" Content="{DynamicResource ButtonEditCtrlS}" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0" Width="80" Height="20" Command="{Binding BtnNewCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsEnabled, ElementName=btnAdd}" Value="False">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnRefresh" Content="{DynamicResource ButtonRefreshCtrlR}" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0" Width="80" Height="20" Command="{Binding BtnRefreshCommand}"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -6,8 +6,8 @@ namespace AAS.EFMODEL.Decorator
 {
     public partial class DummyDecorator
     {
-        //Install Npgsql 3.2.5 via NuGet
-        //Install EntityFramework6.Npgsql 3.1.1 via NuGet
+        //Install-Package Npgsql -Version 3.2.5 via NuGet
+        //Install-Package EntityFramework6.Npgsql -Version 3.1.1 via NuGet
         //Install Npgsql PostgreeSQL Integration 3.2.1 via Extensions and Updates
 
         private static Dictionary<Type, List<PropertyInfo>> properties = new Dictionary<Type, List<PropertyInfo>>();

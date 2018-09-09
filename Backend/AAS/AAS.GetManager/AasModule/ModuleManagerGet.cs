@@ -1,4 +1,6 @@
 ﻿using AAS.EFMODEL.DataModels;
+using AAS.EFMODEL.View;
+using AAS.Filter;
 using DungLH.Util.Backend.MANAGER;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
@@ -80,5 +82,47 @@ namespace AAS.GetManager.AasModule
             }
             return result;
         }
+
+        public ApiResultObject<List<ViewModule>> GetViewResult(AasModuleViewFilter filter)
+        {
+            ApiResultObject<List<ViewModule>> result = null;
+            try
+            {
+                bool valid = true;
+                valid = valid && IsNotNull(param);
+                valid = valid && IsNotNull(filter);
+                List<ViewModule> resultData = null;
+                if (valid)
+                {
+                    resultData = new ModuleGet(param).GetView(filter);
+                }
+                result = this.PackResult(resultData);
+                this.FailLog(result.Success, filter, result.Data);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
+        public List<ViewModule> GetView(AasModuleViewFilter filter)
+        {
+            List<ViewModule> result = null;
+            try
+            {
+                result = new ModuleGet(param).GetView(filter);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
     }
 }

@@ -2,7 +2,6 @@ using AAS.API.Base;
 using AAS.BusinessManager.AasModule;
 using AAS.EFMODEL.DataModels;
 using AAS.GetManager.AasModule;
-using AOS.API.Base;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using System;
@@ -11,7 +10,7 @@ using System.Web.Http;
 
 namespace AAS.API.Controllers
 {
-    public class AasModuleController : BaseApiController
+    public partial class AasModuleController : BaseApiController
     {
         [HttpGet]
         [ApiParamFilter(typeof(ApiParam<ModuleFilterQuery>), "param")]

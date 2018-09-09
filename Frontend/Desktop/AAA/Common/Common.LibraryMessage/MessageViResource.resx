@@ -120,6 +120,9 @@
   <data name="Common_CanhBao" xml:space="preserve">
     <value>Cảnh báo</value>
   </data>
+  <data name="Common_ThieuTruongThongTinBatBuoc" xml:space="preserve">
+    <value>Thiếu thông tin bắt buộc</value>
+  </data>
   <data name="Common_ThongBao" xml:space="preserve">
     <value>Thông báo</value>
   </data>

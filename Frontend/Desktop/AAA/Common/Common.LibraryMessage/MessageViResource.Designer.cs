@@ -70,6 +70,15 @@ namespace Common.LibraryMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thiếu thông tin bắt buộc.
+        /// </summary>
+        internal static string Common_ThieuTruongThongTinBatBuoc {
+            get {
+                return ResourceManager.GetString("Common_ThieuTruongThongTinBatBuoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thông báo.
         /// </summary>
         internal static string Common_ThongBao {

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AAS.GetManager.AasModuleRole
 {
-    class ModuleRoleGet : BusinessBase
+    partial class ModuleRoleGet : BusinessBase
     {
         internal ModuleRoleGet()
             :base()

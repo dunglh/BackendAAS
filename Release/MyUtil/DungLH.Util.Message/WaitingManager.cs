@@ -18,7 +18,7 @@ namespace DungLH.Util.Message
         {
             try
             {
-                if (waitWindow != null && IsWindowOpen<WaitWindow>("waitWindow"))
+                if (waitWindow != null && IsWindowOpen<WaitWindow>(waitWindow.Name))
                 {
                     return;
                 }
@@ -40,7 +40,7 @@ namespace DungLH.Util.Message
                 {
                     return;
                 }
-                if (IsWindowOpen<WaitWindow>("waitWindow"))
+                if (IsWindowOpen<WaitWindow>(waitWindow.Name))
                 {
                     waitWindow.Close();
                 }

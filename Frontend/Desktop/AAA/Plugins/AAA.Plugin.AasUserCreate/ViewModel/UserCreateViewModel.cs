@@ -60,10 +60,33 @@ namespace AAA.Plugin.AasUserCreate.ViewModel
             }
         }
 
+        private bool CheckValidData(CommonParam commonParam)
+        {
+            bool valid = true;
+            try
+            {
+                valid = valid && this.NewUser != null;
+                valid = valid && !String.IsNullOrWhiteSpace(this.NewUser.Loginname);
+                valid = valid && !String.IsNullOrWhiteSpace(this.NewUser.Username);
+                valid = valid && !String.IsNullOrWhiteSpace(this.NewUser.Password);
+                if (!valid)
+                {
+                    MessageUtil.SetMessage(commonParam, Message.Enum.Common_ThieuTruongThongTinBatBuoc);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                valid = false;
+            }
+            return valid;
+        }
+
         public void CancelWindow(object data)
         {
             try
             {
+                this.NewUser = null;
                 CloseWindow = false;
             }
             catch (Exception ex)

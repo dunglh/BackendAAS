@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         DataContext="{DynamicResource applicationCreateViewModel}"
         Title="{DynamicResource ApplicationCreateView}" Height="180" Width="600"
-        Name="applicationCreateView">
+        Name="applicationCreateView"
+        Icon="pack://application:,,,/Common.Resource;component/Icon/user_lock_128.ico">
     <Window.Resources>
         <ResourceDictionary>
             <vm:ApplicationCreateViewModel x:Key="applicationCreateViewModel"/>
@@ -33,7 +34,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{DynamicResource LblApplicationCode}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock Text="{DynamicResource LblApplicationCode}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Maroon" Margin="2" Grid.Column="0" Grid.Row="0"/>
             <TextBox Name="txtApplicationCode" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" PreviewKeyDown="Txt_PreviewKeyDown" CharacterCasing="Upper" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                 <Binding Path="NewApplication.ApplicationCode">
                     <Binding.ValidationRules>
@@ -41,7 +42,7 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox>
-            <TextBlock Text="{DynamicResource LblApplicationName}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Grid.Column="0" Grid.Row="1" />
+            <TextBlock Text="{DynamicResource LblApplicationName}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Maroon" Margin="2" Grid.Column="0" Grid.Row="1" />
             <TextBox Name="txtApplicationName" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" PreviewKeyDown="Txt_PreviewKeyDown" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                 <Binding Path="NewApplication.ApplicationName">
                     <Binding.ValidationRules>
@@ -52,16 +53,15 @@
         </Grid>
         <Grid Grid.Row="1" Margin="40,0">
             <DockPanel HorizontalAlignment="Right" >
-                <Button Name="btnSave" Content="{DynamicResource ButtonSaveCtrlS}" Width="75" Height="20" Margin="5" Command="{Binding CreateNewCommand}">
+                <Button Name="btnSave" IsEnabled="False" Content="{DynamicResource ButtonSaveCtrlS}" Width="75" Height="20" Margin="5" Command="{Binding CreateNewCommand}">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="IsEnabled" Value="False"/>
                             <Style.Triggers>
                                 <MultiDataTrigger>
                                     <MultiDataTrigger.Conditions>
-                                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtLoginname}" Value="False"/>
-                                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtUsername}" Value="False"/>
-                                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtPassword}" Value="False"/>
+                                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtApplicationCode}" Value="False"/>
+                                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=txtApplicationName}" Value="False"/>
                                     </MultiDataTrigger.Conditions>
                                     <Setter Property="IsEnabled" Value="True"/>
                                 </MultiDataTrigger>

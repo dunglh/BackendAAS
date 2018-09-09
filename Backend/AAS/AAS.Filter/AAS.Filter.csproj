@@ -41,8 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AasApplicationFilter.cs" />
+    <Compile Include="AasApplicationRoleViewFilter.cs" />
     <Compile Include="AasApplicationRoleFilter.cs" />
     <Compile Include="AasCredentialDataFilter.cs" />
+    <Compile Include="AasModuleRoleViewFilter.cs" />
+    <Compile Include="AasModuleViewFilter.cs" />
+    <Compile Include="AasUserRoleViewFilter.cs" />
     <Compile Include="FilterBase.cs" />
     <Compile Include="AasModuleFilter.cs" />
     <Compile Include="AasModuleRoleFilter.cs" />

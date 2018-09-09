@@ -2,7 +2,6 @@ using AAS.API.Base;
 using AAS.BusinessManager.AasUser;
 using AAS.EFMODEL.DataModels;
 using AAS.GetManager.AasUser;
-using AOS.API.Base;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using System;
@@ -13,7 +12,7 @@ namespace AAS.API.Controllers
 {
     public class AasUserController : BaseApiController
     {
-        [HttpGet]
+        [HttpGet]        
         [ApiParamFilter(typeof(ApiParam<UserFilterQuery>), "param")]
         [ActionName("Get")]
         public ApiResult Get(ApiParam<UserFilterQuery> param)
@@ -35,7 +34,7 @@ namespace AAS.API.Controllers
             }
         }
         
-        [HttpPost]
+        [HttpPost]        
         [ActionName("Create")]
         public ApiResult Create(ApiParam<User> param)
         {

@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:DungLH.Util.Message"
         mc:Ignorable="d"
         Title="WaitWindow" Height="88" Width="88"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         BorderBrush="Black"
         BorderThickness="0"
         AllowsTransparency="True"
+        Name="waitWindow"
 >
     <Window.Resources>
         <Storyboard x:Key="ProgressAnimation" RepeatBehavior="Forever">

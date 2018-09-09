@@ -48,8 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiConsumerStore.cs" />
+    <Compile Include="APP_CONFIG.cs" />
     <Compile Include="BaseUri.cs" />
-    <Compile Include="BaseUriConfigData.cs" />
+    <Compile Include="BASE_URI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

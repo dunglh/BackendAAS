@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AOS.API.Base
+namespace AAS.API.Base
 {
     public class NotCamelFormatResult : Attribute
     {

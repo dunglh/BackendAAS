@@ -2,7 +2,6 @@ using AAS.API.Base;
 using AAS.BusinessManager.AasCredentialData;
 using AAS.EFMODEL.DataModels;
 using AAS.GetManager.AasCredentialData;
-using AOS.API.Base;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using System;

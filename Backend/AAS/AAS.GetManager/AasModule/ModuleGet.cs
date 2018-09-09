@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AAS.GetManager.AasModule
 {
-    class ModuleGet : BusinessBase
+    partial class ModuleGet : BusinessBase
     {
         internal ModuleGet()
             :base()
@@ -23,9 +23,9 @@ namespace AAS.GetManager.AasModule
             : base(paramGet)
         {
 
-        }
+        }        
 
-        internal List<Module> GetResult(ModuleFilterQuery filter)
+        public List<Module> Get(ModuleFilterQuery filter)
         {
             try
             {
@@ -37,22 +37,6 @@ namespace AAS.GetManager.AasModule
                 param.HasException = true;
                 return null;
             }
-        }
-
-        public List<Module> Get(ModuleFilterQuery filter)
-        {
-            List<Module> result = null;
-            try
-            {
-                result = new ModuleGet(param).Get(filter);
-            }
-            catch (Exception ex)
-            {
-                LogSystem.Error(ex);
-                param.HasException = true;
-                result = null;
-            }
-            return result;
         }
 
         internal Module GetById(long id)

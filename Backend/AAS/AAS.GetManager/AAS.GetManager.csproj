@@ -49,9 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AasApplicationRole\ApplicationRoleGetView.cs" />
     <Compile Include="AasCredentialData\CredentialDataFilterQuery.cs" />
     <Compile Include="AasCredentialData\CredentialDataGet.cs" />
     <Compile Include="AasCredentialData\CredentialDataManagerGet.cs" />
+    <Compile Include="AasModuleRole\ModuleRoleGetView.cs" />
+    <Compile Include="AasModule\ModuleGetView.cs" />
+    <Compile Include="AasUserRole\UserRoleGetView.cs" />
     <Compile Include="AasUserRole\UserRoleFilterQuery.cs" />
     <Compile Include="AasUserRole\UserRoleGet.cs" />
     <Compile Include="AasUserRole\UserRoleManagerGet.cs" />

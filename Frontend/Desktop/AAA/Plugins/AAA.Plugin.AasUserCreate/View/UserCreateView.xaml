@@ -10,7 +10,8 @@
         mc:Ignorable="d"
         DataContext="{DynamicResource userCreateViewModel}"
         Title="{DynamicResource UserCreateView}" Height="220" Width="800"
-        Name="userCreateView">
+        Name="userCreateView"
+        Icon="pack://application:,,,/Common.Resource;component/Icon/user_lock_128.ico">
     <Window.Resources>
         <ResourceDictionary>
             <vm:UserCreateViewModel x:Key="userCreateViewModel"/>
@@ -38,7 +39,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{DynamicResource LblLoginname}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Grid.Column="0" Grid.Row="0" />
+            <TextBlock Text="{DynamicResource LblLoginname}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Maroon" Margin="2" Grid.Column="0" Grid.Row="0" />
             <TextBox Name="txtLoginname" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" PreviewKeyDown="Txt_PreviewKeyDown" CharacterCasing="Upper" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                 <Binding Path="NewUser.Loginname">
                     <Binding.ValidationRules>
@@ -46,7 +47,7 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox>
-            <TextBlock Text="{DynamicResource LblUsername}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Grid.Column="0" Grid.Row="1" />
+            <TextBlock Text="{DynamicResource LblUsername}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Maroon" Margin="2" Grid.Column="0" Grid.Row="1" />
             <TextBox Name="txtUsername" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" PreviewKeyDown="Txt_PreviewKeyDown" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                 <Binding Path="NewUser.Username">
                     <Binding.ValidationRules>
@@ -54,7 +55,7 @@
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox>
-            <TextBlock Text="{DynamicResource LblPassword}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Grid.Column="0" Grid.Row="2"/>
+            <TextBlock Text="{DynamicResource LblPassword}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Maroon" Margin="2" Grid.Column="0" Grid.Row="2"/>
             <PasswordBox hl:PasswordBoxAssistant.BindPassword="True" Name="txtPassword" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" PasswordChar="*" PreviewKeyDown="Txt_PreviewKeyDown" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                 <hl:PasswordBoxAssistant.BoundPassword>
                     <Binding Path="Password" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
@@ -66,11 +67,11 @@
             </PasswordBox>
 
             <TextBlock Text="{DynamicResource LblEmail}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"
-                       Grid.Column="3" Grid.Row="0"/>
-            <TextBox Name="txtEmail" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0" PreviewKeyDown="Txt_PreviewKeyDown"/>
+                       Grid.Column="3" Grid.Row="0" />
+            <TextBox Name="txtEmail" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0" PreviewKeyDown="Txt_PreviewKeyDown" Text="{Binding NewUser.Email}"/>
             <TextBlock Text="{DynamicResource LblPhone}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"
                        Grid.Column="3" Grid.Row="1"/>
-            <TextBox Name="txtPhone" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" PreviewKeyDown="Txt_PreviewKeyDown"/>
+            <TextBox Name="txtPhone" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" PreviewKeyDown="Txt_PreviewKeyDown" Text="{Binding NewUser.Mobile}"/>
 
         </Grid>
         <Grid Grid.Row="1">

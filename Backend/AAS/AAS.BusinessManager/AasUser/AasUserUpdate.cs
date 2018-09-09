@@ -40,12 +40,15 @@ namespace AAS.BusinessManager.AasUser
                 valid = valid && checker.ExistsLoginname(data.Loginname, data.Id);
                 if (valid)
                 {
+                    data.Password = raw.Password;
+                    data.Salt = raw.Salt;
 					if (!DAOWorker.AasUserDAO.Update(data))
                     {
                         BugUtil.SetBugCode(param, LibraryBug.Bug.Enum.AasUser_CapNhatThatBai);
                         throw new Exception("Cap nhat thong tin AasUser that bai." + LogUtil.TraceData("data", data));
                     }
-
+                    data.Password = null;
+                    data.Salt = null;
                     this.beforeUpdateAasUsers.Add(raw);
                     result = true;
                 }

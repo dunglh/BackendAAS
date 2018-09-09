@@ -9,6 +9,7 @@ namespace AAS.URI
     public class AasModule
     {
         public const string GET = "api/AasModule/Get";
+        public const string GET_VIEW = "api/AasModule/GetView";
         public const string CREATE = "api/AasModule/Create";
         public const string UPDATE = "api/AasModule/Update";
         public const string DELETE = "api/AasModule/Delete";

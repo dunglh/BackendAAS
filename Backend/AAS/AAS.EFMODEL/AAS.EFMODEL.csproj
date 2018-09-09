@@ -108,6 +108,10 @@
     <Compile Include="Decorator\DenyUpdateDecoratorLoad\LoadUserRole.cs" />
     <Compile Include="Decorator\DummyDecorator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ViewApplicationRole.cs" />
+    <Compile Include="View\ViewModule.cs" />
+    <Compile Include="View\ViewModuleRole.cs" />
+    <Compile Include="View\ViewUserRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Decorator\DummyDecoratorLoad\" />

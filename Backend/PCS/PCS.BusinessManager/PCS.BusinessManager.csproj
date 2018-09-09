@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54701FD6-FF8B-49EE-B204-BFDF0FF260F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCS.BusinessManager</RootNamespace>
+    <AssemblyName>PCS.BusinessManager</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DungLH.Util.Backend.MANAGER">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Backend.MANAGER\DungLH.Util.Backend.MANAGER.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.CommonLogging">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.CommonLogging\DungLH.Util.CommonLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Core">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Core\DungLH.Util.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DungLH.Util.Token.Backend">
+      <HintPath>..\..\..\Release\LibraryUtil\DungLH.Util.Token.Backend\DungLH.Util.Token.Backend.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BugUtil.cs" />
+    <Compile Include="Base\MessageUtil.cs" />
+    <Compile Include="PcsAddress\PcsAddressCheck.cs" />
+    <Compile Include="PcsAddress\PcsAddressCreate.cs" />
+    <Compile Include="PcsAddress\PcsAddressLock.cs" />
+    <Compile Include="PcsAddress\PcsAddressManager.cs" />
+    <Compile Include="PcsAddress\PcsAddressTruncate.cs" />
+    <Compile Include="PcsAddress\PcsAddressUpdate.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeCheck.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeCreate.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeLock.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeManager.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeTruncate.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeUpdate.cs" />
+    <Compile Include="PcsPost\PcsPostCheck.cs" />
+    <Compile Include="PcsPost\PcsPostCreate.cs" />
+    <Compile Include="PcsPost\PcsPostLock.cs" />
+    <Compile Include="PcsPost\PcsPostManager.cs" />
+    <Compile Include="PcsPost\PcsPostTruncate.cs" />
+    <Compile Include="PcsPost\PcsPostUpdate.cs" />
+    <Compile Include="PcsProject\PcsProjectCheck.cs" />
+    <Compile Include="PcsProject\PcsProjectCheckCode.cs" />
+    <Compile Include="PcsProject\PcsProjectCreate.cs" />
+    <Compile Include="PcsProject\PcsProjectLock.cs" />
+    <Compile Include="PcsProject\PcsProjectManager.cs" />
+    <Compile Include="PcsProject\PcsProjectTruncate.cs" />
+    <Compile Include="PcsProject\PcsProjectUpdate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCS.DAO\PCS.DAO.csproj">
+      <Project>{4e5d49b3-6ed4-4cb4-8ed0-4e385f5508ec}</Project>
+      <Name>PCS.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.EFMODEL\PCS.EFMODEL.csproj">
+      <Project>{062cfd52-08aa-4e60-b2e5-2ff214977178}</Project>
+      <Name>PCS.EFMODEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.Filter\PCS.Filter.csproj">
+      <Project>{d7275373-192c-4e0d-bf82-4157ffb146d3}</Project>
+      <Name>PCS.Filter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.GetManager\PCS.GetManager.csproj">
+      <Project>{d2ef6794-d4e5-4380-9a96-217fe7ae3546}</Project>
+      <Name>PCS.GetManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.LibraryBug\PCS.LibraryBug.csproj">
+      <Project>{aa9d0941-8894-4a2d-89cb-8b49ef8aecc8}</Project>
+      <Name>PCS.LibraryBug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.LibraryMessage\PCS.LibraryMessage.csproj">
+      <Project>{ff354c10-b482-4698-8cd0-73be48bd281c}</Project>
+      <Name>PCS.LibraryMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCS.UTILITY\PCS.UTILITY.csproj">
+      <Project>{e1f26085-2144-4189-9e49-1641626673b0}</Project>
+      <Name>PCS.UTILITY</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

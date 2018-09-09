@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AAS.GetManager.AasUserRole
 {
-    class UserRoleGet : BusinessBase
+    partial class UserRoleGet : BusinessBase
     {
         internal UserRoleGet()
             :base()

@@ -185,10 +185,14 @@
     <Compile Include="Base\BaseApiController.cs" />
     <Compile Include="Base\LicenseFilter.cs" />
     <Compile Include="Base\NotCamelFormatResult.cs" />
+    <Compile Include="Controllers\AasApplicationRoleControllerView.cs" />
+    <Compile Include="Controllers\AasModuleController.cs" />
+    <Compile Include="Controllers\AasModuleRoleControllerView.cs" />
+    <Compile Include="Controllers\AasUserRoleControllerView.cs" />
     <Compile Include="Controllers\AasUserRoleController.cs" />
     <Compile Include="Controllers\AasUserController.cs" />
     <Compile Include="Controllers\AasModuleRoleController.cs" />
-    <Compile Include="Controllers\AasModuleController.cs" />
+    <Compile Include="Controllers\AasModuleControllerView.cs" />
     <Compile Include="Controllers\AasCredentialDataController.cs" />
     <Compile Include="Controllers\AasApplicationRoleController.cs" />
     <Compile Include="Controllers\AasApplicationController.cs" />

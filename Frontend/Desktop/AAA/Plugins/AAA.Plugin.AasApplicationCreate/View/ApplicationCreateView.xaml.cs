@@ -35,12 +35,12 @@ namespace AAA.Plugin.AasApplicationCreate.View
                 if (e.Key == Key.Enter)
                 {
                     var element = sender as FrameworkElement;
-                    if (element.Name == "txtApplicationCode")
+                    if (element.Name == txtApplicationCode.Name)
                     {
                         this.txtApplicationName.Focus();
                         this.txtApplicationName.SelectAll();
                     }
-                    else if (element.Name == "txtApplicationName")
+                    else if (element.Name == txtApplicationName.Name)
                     {
                         SendKeys.Send(Key.Tab);
                     }

@@ -1,4 +1,6 @@
 ﻿using AAS.EFMODEL.DataModels;
+using AAS.EFMODEL.View;
+using AAS.Filter;
 using DungLH.Util.Backend.MANAGER;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
@@ -103,6 +105,47 @@ namespace AAS.GetManager.AasUserRole
             try
             {
                 result = new UserRoleGet(param).GetByRoleId(roleId);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
+        public ApiResultObject<List<ViewUserRole>> GetViewResult(AasUserRoleViewFilter filter)
+        {
+            ApiResultObject<List<ViewUserRole>> result = null;
+            try
+            {
+                bool valid = true;
+                valid = valid && IsNotNull(param);
+                valid = valid && IsNotNull(filter);
+                List<ViewUserRole> resultData = null;
+                if (valid)
+                {
+                    resultData = new UserRoleGet(param).GetView(filter);
+                }
+                result = this.PackResult(resultData);
+                this.FailLog(result.Success, filter, result.Data);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
+        public List<ViewUserRole> GetView(AasUserRoleViewFilter filter)
+        {
+            List<ViewUserRole> result = null;
+            try
+            {
+                result = new UserRoleGet(param).GetView(filter);
             }
             catch (Exception ex)
             {

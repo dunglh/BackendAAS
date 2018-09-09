@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace AOS.API.Base
+namespace AAS.API.Base
 {
     public class ApiResult : IHttpActionResult
     {
