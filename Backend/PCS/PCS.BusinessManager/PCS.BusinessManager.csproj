@@ -82,13 +82,14 @@
     <Compile Include="PcsPost\Reject\PcsPostReject.cs" />
     <Compile Include="PcsPost\Truncate\PcsPostTruncate.cs" />
     <Compile Include="PcsPost\Update\PcsPostUpdate.cs" />
+    <Compile Include="PcsProject\Finish\PcsProjectFinish.cs" />
     <Compile Include="PcsProject\PcsProjectCheck.cs" />
     <Compile Include="PcsProject\PcsProjectCheckCode.cs" />
-    <Compile Include="PcsProject\PcsProjectCreate.cs" />
-    <Compile Include="PcsProject\PcsProjectLock.cs" />
+    <Compile Include="PcsProject\Create\PcsProjectCreate.cs" />
+    <Compile Include="PcsProject\Lock\PcsProjectLock.cs" />
     <Compile Include="PcsProject\PcsProjectManager.cs" />
-    <Compile Include="PcsProject\PcsProjectTruncate.cs" />
-    <Compile Include="PcsProject\PcsProjectUpdate.cs" />
+    <Compile Include="PcsProject\Truncate\PcsProjectTruncate.cs" />
+    <Compile Include="PcsProject\Update\PcsProjectUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

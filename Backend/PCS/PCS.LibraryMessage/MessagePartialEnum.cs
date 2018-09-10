@@ -13,7 +13,9 @@
             PcsPost__TrangThaiBaiDangKhongHopLe,
             PcsPost__TonTaiBaiDangKhongThuocDuAn,
             PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet,
-            PcsPost__DuAnKhongCoBaiDangNaoHopLe
+            PcsPost__DuAnKhongCoBaiDangNaoHopLe,
+            PcsEmployee__BanKhongCoQuyenThucHienChucNangNay,
+            PcsPost__ThieuThongTinLyDoTuChoiDuyet
         }
     }
 }

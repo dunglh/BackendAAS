@@ -168,6 +168,37 @@ namespace PCS.DAO.PcsEmployee
             return result;
         }
 
+        public Employee GetByLoginname(string loginname, PcsEmployeeSO search)
+        {
+            Employee result = null;
+
+            try
+            {
+                result = GetWorker.GetByLoginname(loginname, search);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                result = null;
+            }
+
+            return result;
+        }
+
+        public bool ExistsLoginname(string code, long? id)
+        {
+
+            try
+            {
+                return CheckWorker.ExistsLoginname(code, id);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                throw;
+            }
+        }
+
         public bool IsUnLock(long id)
         {
             try

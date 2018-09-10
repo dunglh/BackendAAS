@@ -3,6 +3,7 @@ using PCS.EFMODEL.DataModels;
 using DungLH.Util.Core;
 using System;
 using System.Linq;
+using DungLH.Util.CommonLogging;
 
 namespace PCS.DAO.PcsAddress
 {
@@ -20,5 +21,6 @@ namespace PCS.DAO.PcsAddress
         {
             return bridgeDAO.IsUnLock(id);
         }
+
     }
 }

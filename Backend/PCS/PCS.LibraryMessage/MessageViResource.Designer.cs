@@ -106,6 +106,15 @@ namespace PCS.LibraryMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bạn không có quyền thực hiện chức năng này.
+        /// </summary>
+        internal static string PcsEmployee__BanKhongCoQuyenThucHienChucNangNay {
+            get {
+                return ResourceManager.GetString("PcsEmployee__BanKhongCoQuyenThucHienChucNangNay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dự án chưa có bài đăng nào chưa duyệt.
         /// </summary>
         internal static string PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet {
@@ -120,6 +129,15 @@ namespace PCS.LibraryMessage {
         internal static string PcsPost__DuAnKhongCoBaiDangNaoHopLe {
             get {
                 return ResourceManager.GetString("PcsPost__DuAnKhongCoBaiDangNaoHopLe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thiếu thông tin lý do từ chối duyệt.
+        /// </summary>
+        internal static string PcsPost__ThieuThongTinLyDoTuChoiDuyet {
+            get {
+                return ResourceManager.GetString("PcsPost__ThieuThongTinLyDoTuChoiDuyet", resourceCulture);
             }
         }
         

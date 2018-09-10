@@ -80,5 +80,22 @@ namespace PCS.GetManager.PcsEmployee
             }
             return result;
         }
+
+        public Employee GetByLoginname(string loginname)
+        {
+            Employee result = null;
+            try
+            {
+                result = new PcsEmployeeGet(param).GetByLoginname(loginname);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                result = null;
+            }
+            return result;
+        }
+
     }
 }

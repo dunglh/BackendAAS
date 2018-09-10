@@ -319,5 +319,29 @@ namespace PCS.BusinessManager.PcsEmployee
             }
             return valid;
         }
+
+        internal bool CheckRoleApproveOrReject(string loginname)
+        {
+            bool valid = true;
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(loginname))
+                {
+                    Employee add = new PcsEmployeeManagerGet().GetByLoginname(loginname);
+                    if (add == null || add.RoleId == RoleConstant.ROLE_ID__EMPLOYEE)
+                    {
+                        MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.PcsEmployee__BanKhongCoQuyenThucHienChucNangNay);
+                        throw new Exception("Nguoi dung khong co quyen thuc hien chuc nang duyet loginname: " + loginname);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                valid = false;
+            }
+            return valid;
+        }
+
     }
 }

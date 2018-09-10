@@ -11,6 +11,7 @@ using PCS.BusinessManager.Base;
 using PCS.SDO;
 using PCS.GetManager.PcsProject;
 using System.Linq;
+using PCS.GetManager.PcsAddress;
 
 namespace PCS.BusinessManager.PcsPost
 {
@@ -326,7 +327,7 @@ namespace PCS.BusinessManager.PcsPost
             return valid;
         }
 
-        internal bool AllowApprove(Post data)
+        internal bool AllowApproveOrReject(Post data)
         {
             bool valid = true;
             try
@@ -345,7 +346,7 @@ namespace PCS.BusinessManager.PcsPost
             return valid;
         }
 
-        internal bool AllowApprove(List<Post> listData)
+        internal bool AllowApproveOrReject(List<Post> listData)
         {
             bool valid = true;
             try
@@ -354,7 +355,7 @@ namespace PCS.BusinessManager.PcsPost
                 {
                     foreach (Post data in listData)
                     {
-                        valid = valid && this.AllowApprove(data);
+                        valid = valid && this.AllowApproveOrReject(data);
                     }
                 }
             }
@@ -410,5 +411,31 @@ namespace PCS.BusinessManager.PcsPost
             return valid;
         }
 
+        internal bool ValidRejectNote(PcsPostSDO data)
+        {
+            bool valid = true;
+            try
+            {
+                if (IsNotNullOrEmpty(data.Posts))
+                {
+                    valid = valid && (!data.Posts.Exists(e => String.IsNullOrWhiteSpace(e.ApprovalNote)) && String.IsNullOrWhiteSpace(data.Note));
+                }
+                else
+                {
+                    valid = valid && String.IsNullOrWhiteSpace(data.Note);
+                }
+                if (!valid)
+                {
+                    MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.PcsPost__ThieuThongTinLyDoTuChoiDuyet);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                valid = true;
+            }
+            return valid;
+        }
     }
 }

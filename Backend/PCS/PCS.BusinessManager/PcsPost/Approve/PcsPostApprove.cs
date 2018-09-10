@@ -2,6 +2,7 @@
 using DungLH.Util.Backend.MANAGER;
 using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
+using PCS.BusinessManager.PcsEmployee;
 using PCS.BusinessManager.PcsProject;
 using PCS.EFMODEL.DataModels;
 using PCS.SDO;
@@ -38,20 +39,22 @@ namespace PCS.BusinessManager.PcsPost.Approve
                 bool valid = true;
                 Project project = null;
                 List<Post> listRaw = null;
+                string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
+                string username = DungLH.Util.Token.Backend.BackendTokenManager.GetUsername();
                 PcsPostCheck checker = new PcsPostCheck(param);
                 PcsProjectCheck projectChecker = new PcsProjectCheck(param);
+                PcsEmployeeCheck employeeChecker = new PcsEmployeeCheck(param);
                 valid = valid && IsNotNull(data);
                 valid = valid && IsGreaterThanZero(data.ProjectId);
                 valid = valid && projectChecker.VerifyId(data.ProjectId, ref project);
                 valid = valid && checker.ValidData(data, PostSttConstant.POST_STT_ID__NOT_APPROVAL, ref listRaw);
                 valid = valid && projectChecker.IsUnFinish(project);
-                valid = valid && checker.AllowApprove(listRaw);
+                valid = valid && checker.AllowApproveOrReject(listRaw);
+                valid = valid && employeeChecker.CheckRoleApproveOrReject(loginname);
                 if (valid)
                 {
                     Mapper.CreateMap<Post, Post>();
                     List<Post> befores = Mapper.Map<List<Post>>(listRaw);
-                    string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
-                    string username = DungLH.Util.Token.Backend.BackendTokenManager.GetUsername();
                     long approveTime = Convert.ToInt64(DateTime.Now.ToString("yyyyMMddHHmmss"));
                     foreach (Post raw in listRaw)
                     {

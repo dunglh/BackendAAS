@@ -76,6 +76,7 @@
     <Compile Include="PcsAddress\PcsAddressGet.cs" />
     <Compile Include="PcsAddress\PcsAddressTruncate.cs" />
     <Compile Include="PcsAddress\PcsAddressUpdate.cs" />
+    <Compile Include="PcsEmployee\PcsEmployeeGetByCode.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeCheck.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeCreate.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeDAO.cs" />

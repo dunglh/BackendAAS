@@ -132,11 +132,17 @@
   <data name="Common__ThieuThongTinBatBuoc" xml:space="preserve">
     <value>Dữ liệu thiếu trường thông tin bắt buộc</value>
   </data>
+  <data name="PcsEmployee__BanKhongCoQuyenThucHienChucNangNay" xml:space="preserve">
+    <value>Bạn không có quyền thực hiện chức năng này</value>
+  </data>
   <data name="PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet" xml:space="preserve">
     <value>Dự án chưa có bài đăng nào chưa duyệt</value>
   </data>
   <data name="PcsPost__DuAnKhongCoBaiDangNaoHopLe" xml:space="preserve">
     <value>Dự án không có bài đăng nào hợp lệ</value>
+  </data>
+  <data name="PcsPost__ThieuThongTinLyDoTuChoiDuyet" xml:space="preserve">
+    <value>Thiếu thông tin lý do từ chối duyệt</value>
   </data>
   <data name="PcsPost__TonTaiBaiDangKhongThuocDuAn" xml:space="preserve">
     <value>Tồn tại bài đăng không thuộc dự án</value>

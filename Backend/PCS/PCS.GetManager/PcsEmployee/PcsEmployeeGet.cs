@@ -66,5 +66,33 @@ namespace PCS.GetManager.PcsEmployee
                 return null;
             }
         }
+
+        internal Employee GetByLoginname(string loginname)
+        {
+            try
+            {
+                return GetByLoginname(loginname, new PcsEmployeeFilterQuery());
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                return null;
+            }
+        }
+
+        internal Employee GetByLoginname(string loginname, PcsEmployeeFilterQuery filter)
+        {
+            try
+            {
+                return DAOWorker.PcsEmployeeDAO.GetByLoginname(loginname, filter.Query());
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+                return null;
+            }
+        }
     }
 }
