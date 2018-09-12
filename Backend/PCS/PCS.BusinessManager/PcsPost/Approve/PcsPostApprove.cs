@@ -41,15 +41,16 @@ namespace PCS.BusinessManager.PcsPost.Approve
                 List<Post> listRaw = null;
                 string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
                 string username = DungLH.Util.Token.Backend.BackendTokenManager.GetUsername();
-                PcsPostCheck checker = new PcsPostCheck(param);
+                
                 PcsProjectCheck projectChecker = new PcsProjectCheck(param);
+                PcsPostApproveCheck approveChecker = new PcsPostApproveCheck(param);
                 PcsEmployeeCheck employeeChecker = new PcsEmployeeCheck(param);
                 valid = valid && IsNotNull(data);
                 valid = valid && IsGreaterThanZero(data.ProjectId);
                 valid = valid && projectChecker.VerifyId(data.ProjectId, ref project);
-                valid = valid && checker.ValidData(data, PostSttConstant.POST_STT_ID__NOT_APPROVAL, ref listRaw);
+                valid = valid && approveChecker.ValidData(data, ref listRaw);
                 valid = valid && projectChecker.IsUnFinish(project);
-                valid = valid && checker.AllowApproveOrReject(listRaw);
+                valid = valid && approveChecker.AllowApprove(listRaw);
                 valid = valid && employeeChecker.CheckRoleApproveOrReject(loginname);
                 if (valid)
                 {
@@ -78,6 +79,7 @@ namespace PCS.BusinessManager.PcsPost.Approve
                 param.HasException = true;
                 this.Rollback();
                 result = false;
+                resultData = null;
             }
             return result;
         }

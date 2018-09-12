@@ -75,11 +75,13 @@
     <Compile Include="PcsEmployee\PcsEmployeeTruncate.cs" />
     <Compile Include="PcsEmployee\PcsEmployeeUpdate.cs" />
     <Compile Include="PcsPost\Approve\PcsPostApprove.cs" />
+    <Compile Include="PcsPost\Approve\PcsPostApproveCheck.cs" />
     <Compile Include="PcsPost\PcsPostCheck.cs" />
     <Compile Include="PcsPost\Create\PcsPostCreate.cs" />
     <Compile Include="PcsPost\Lock\PcsPostLock.cs" />
     <Compile Include="PcsPost\PcsPostManager.cs" />
     <Compile Include="PcsPost\Reject\PcsPostReject.cs" />
+    <Compile Include="PcsPost\Reject\PcsPostRejectCheck.cs" />
     <Compile Include="PcsPost\Truncate\PcsPostTruncate.cs" />
     <Compile Include="PcsPost\Update\PcsPostUpdate.cs" />
     <Compile Include="PcsProject\Finish\PcsProjectFinish.cs" />

@@ -6,6 +6,7 @@ using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PCS.BusinessManager.PcsProject;
 
 namespace PCS.BusinessManager.PcsAddress
 {
@@ -29,11 +30,16 @@ namespace PCS.BusinessManager.PcsAddress
             try
             {
                 bool valid = true;
-                PcsAddressCheck checker = new PcsAddressCheck(param);
-                valid = valid && IsNotNull(data);
                 Address raw = null;
+                Project project = null;
+                PcsAddressCheck checker = new PcsAddressCheck(param);
+                PcsProjectCheck projectChecker = new PcsProjectCheck(param);
+                valid = valid && IsNotNull(data);                
                 valid = valid && checker.VerifyId(data.Id, ref raw);
                 valid = valid && checker.IsUnLock(raw);
+                valid = valid && projectChecker.VerifyId(data.ProjectId, ref project);
+                valid = valid && projectChecker.IsUnLock(project);
+                valid = valid && projectChecker.IsUnFinish(project);
                 valid = valid && checker.CheckConstraint(data.Id);
                 if (valid)
                 {

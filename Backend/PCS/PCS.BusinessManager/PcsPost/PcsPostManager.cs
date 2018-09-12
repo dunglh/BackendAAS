@@ -4,6 +4,9 @@ using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
+using PCS.SDO;
+using PCS.BusinessManager.PcsPost.Approve;
+using PCS.BusinessManager.PcsPost.Reject;
 
 namespace PCS.BusinessManager.PcsPost
 {
@@ -145,5 +148,56 @@ namespace PCS.BusinessManager.PcsPost
             
             return result;
         }
+
+        public ApiResultObject<List<Post>> Approve(PcsPostSDO data)
+        {
+            ApiResultObject<List<Post>> result = new ApiResultObject<List<Post>>(null);
+            try
+            {
+                bool valid = true;
+                valid = valid && IsNotNull(param);
+                valid = valid && IsNotNull(data);
+                List<Post> resultData = null;
+                if (valid)
+                {
+                    new PcsPostApprove(param).Run(data, ref resultData);
+                }
+                result = this.PackResult(resultData);
+                this.FailLog(result.Success, data, result.Data);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+            }
+
+            return result;
+        }
+
+        public ApiResultObject<List<Post>> Reject(PcsPostSDO data)
+        {
+            ApiResultObject<List<Post>> result = new ApiResultObject<List<Post>>(null);
+            try
+            {
+                bool valid = true;
+                valid = valid && IsNotNull(param);
+                valid = valid && IsNotNull(data);
+                List<Post> resultData = null;
+                if (valid)
+                {
+                    new PcsPostReject(param).Run(data, ref resultData);
+                }
+                result = this.PackResult(resultData);
+                this.FailLog(result.Success, data, result.Data);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+            }
+
+            return result;
+        }
+
     }
 }

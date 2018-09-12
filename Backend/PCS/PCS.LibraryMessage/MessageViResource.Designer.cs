@@ -115,6 +115,15 @@ namespace PCS.LibraryMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chỉ được sửa/xóa bài đăng khi đang ở tráng thái từ chối duyệt, chưa duyệt.
+        /// </summary>
+        internal static string PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai {
+            get {
+                return ResourceManager.GetString("PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dự án chưa có bài đăng nào chưa duyệt.
         /// </summary>
         internal static string PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet {
@@ -165,6 +174,24 @@ namespace PCS.LibraryMessage {
         internal static string PcsProject__DuAnDaKetThuc {
             get {
                 return ResourceManager.GetString("PcsProject__DuAnDaKetThuc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tồn tại dữ liệu bài đăng.
+        /// </summary>
+        internal static string PcsProject__TonTaiDuLieuBaiDang {
+            get {
+                return ResourceManager.GetString("PcsProject__TonTaiDuLieuBaiDang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tồn tại dữ liệu địa chỉ.
+        /// </summary>
+        internal static string PcsProject__TonTaiDuLieuDiaChi {
+            get {
+                return ResourceManager.GetString("PcsProject__TonTaiDuLieuDiaChi", resourceCulture);
             }
         }
     }

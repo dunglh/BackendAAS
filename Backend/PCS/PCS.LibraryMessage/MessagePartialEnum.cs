@@ -15,7 +15,10 @@
             PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet,
             PcsPost__DuAnKhongCoBaiDangNaoHopLe,
             PcsEmployee__BanKhongCoQuyenThucHienChucNangNay,
-            PcsPost__ThieuThongTinLyDoTuChoiDuyet
+            PcsPost__ThieuThongTinLyDoTuChoiDuyet,
+            PcsProject__TonTaiDuLieuDiaChi,
+            PcsProject__TonTaiDuLieuBaiDang,
+            PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai
         }
     }
 }

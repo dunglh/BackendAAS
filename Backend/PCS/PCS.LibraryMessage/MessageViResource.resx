@@ -135,6 +135,9 @@
   <data name="PcsEmployee__BanKhongCoQuyenThucHienChucNangNay" xml:space="preserve">
     <value>Bạn không có quyền thực hiện chức năng này</value>
   </data>
+  <data name="PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai" xml:space="preserve">
+    <value>Chỉ được sửa/xóa bài đăng khi đang ở tráng thái từ chối duyệt, chưa duyệt</value>
+  </data>
   <data name="PcsPost__DuAnChuaCoBaiDangNaoChuaDuyet" xml:space="preserve">
     <value>Dự án chưa có bài đăng nào chưa duyệt</value>
   </data>
@@ -152,5 +155,11 @@
   </data>
   <data name="PcsProject__DuAnDaKetThuc" xml:space="preserve">
     <value>Dự án: {0} đã kết thúc</value>
+  </data>
+  <data name="PcsProject__TonTaiDuLieuBaiDang" xml:space="preserve">
+    <value>Tồn tại dữ liệu bài đăng</value>
+  </data>
+  <data name="PcsProject__TonTaiDuLieuDiaChi" xml:space="preserve">
+    <value>Tồn tại dữ liệu địa chỉ</value>
   </data>
 </root>

@@ -21,6 +21,9 @@
                     case Enum.PcsPost__DuAnKhongCoBaiDangNaoHopLe: message = MessageViResource.PcsPost__DuAnKhongCoBaiDangNaoHopLe; break;
                     case Enum.PcsEmployee__BanKhongCoQuyenThucHienChucNangNay: message = MessageViResource.PcsEmployee__BanKhongCoQuyenThucHienChucNangNay; break;
                     case Enum.PcsPost__ThieuThongTinLyDoTuChoiDuyet: message = MessageViResource.PcsPost__ThieuThongTinLyDoTuChoiDuyet; break;
+                    case Enum.PcsProject__TonTaiDuLieuDiaChi: message = MessageViResource.PcsProject__TonTaiDuLieuDiaChi; break;
+                    case Enum.PcsProject__TonTaiDuLieuBaiDang: message = MessageViResource.PcsProject__TonTaiDuLieuBaiDang; break;
+                    case Enum.PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai: message = MessageViResource.PcsPost__ChiDuocSuaXoaBaiDangKhiOTrangThai; break;
 
                     default: message = defaultViMessage; break;
                 }

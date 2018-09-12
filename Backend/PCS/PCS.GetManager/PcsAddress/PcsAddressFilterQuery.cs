@@ -75,7 +75,28 @@ namespace PCS.GetManager.PcsAddress
                 {
                     listExpression.Add(o => this.Ids.Contains(o.Id));
                 }
-                #endregion                
+                #endregion
+
+                if (this.ProjectId.HasValue)
+                {
+                    listExpression.Add(o => o.ProjectId == this.ProjectId.Value);
+                }
+                if (this.ProjectIds != null)
+                {
+                    listExpression.Add(o => this.ProjectIds.Contains(o.ProjectId));
+                }
+                if (this.BlogId.HasValue)
+                {
+                    listExpression.Add(o => o.BlogId.HasValue && o.BlogId.Value == this.BlogId.Value);
+                }
+                if (this.BlogIds != null)
+                {
+                    listExpression.Add(o => o.BlogId.HasValue && this.BlogIds.Contains(o.BlogId.Value));
+                }
+                if (!String.IsNullOrWhiteSpace(this.LoginnameExact))
+                {
+                    listExpression.Add(o => o.Loginname == this.LoginnameExact);
+                }
 
                 search.listAddressExpression.AddRange(listExpression);
                 search.OrderField = this.OrderField;

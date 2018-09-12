@@ -35,6 +35,7 @@ namespace PCS.BusinessManager.PcsPost
                 valid = valid && checker.VerifyId(data.Id, ref raw);
                 valid = valid && checker.IsUnLock(raw);
                 valid = valid && checker.CheckConstraint(data.Id);
+                valid = valid && checker.CheckSttForDeleteOrUpdate(raw);
                 if (valid)
                 {
                     result = DAOWorker.PcsPostDAO.Truncate(data);

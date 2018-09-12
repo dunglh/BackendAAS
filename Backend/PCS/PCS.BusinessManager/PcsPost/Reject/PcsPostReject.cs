@@ -41,17 +41,17 @@ namespace PCS.BusinessManager.PcsPost.Reject
                 List<Post> listRaw = null;
                 string loginname = DungLH.Util.Token.Backend.BackendTokenManager.GetLoginname();
                 string username = DungLH.Util.Token.Backend.BackendTokenManager.GetUsername();
-                PcsPostCheck checker = new PcsPostCheck(param);
+                PcsPostRejectCheck checker = new PcsPostRejectCheck(param);
                 PcsProjectCheck projectChecker = new PcsProjectCheck(param);
                 PcsEmployeeCheck employeeChecker = new PcsEmployeeCheck(param);
                 valid = valid && IsNotNull(data);
                 valid = valid && IsGreaterThanZero(data.ProjectId);
                 valid = valid && projectChecker.VerifyId(data.ProjectId, ref project);
-                valid = valid && checker.ValidData(data, PostSttConstant.POST_STT_ID__NOT_APPROVAL, ref listRaw);
+                valid = valid && checker.ValidData(data, ref listRaw);
                 valid = valid && projectChecker.IsUnFinish(project);
-                valid = valid && checker.AllowApproveOrReject(listRaw);
+                valid = valid && checker.AllowReject(listRaw);
+                valid = valid && checker.ValidNote(data);
                 valid = valid && employeeChecker.CheckRoleApproveOrReject(loginname);
-                valid = valid && checker.ValidRejectNote(data);
                 if (valid)
                 {
                     Mapper.CreateMap<Post, Post>();
@@ -81,6 +81,7 @@ namespace PCS.BusinessManager.PcsPost.Reject
                 param.HasException = true;
                 this.Rollback();
                 result = false;
+                resultData = null;
             }
             return result;
         }

@@ -7,6 +7,7 @@ using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using PCS.SDO;
 
 namespace PCS.API.Controllers
 {
@@ -96,7 +97,7 @@ namespace PCS.API.Controllers
                 return null;
             }
         }
-        
+
         [HttpPost]
         [ActionName("Lock")]
         public ApiResult Lock(ApiParam<Post> param)
@@ -129,6 +130,48 @@ namespace PCS.API.Controllers
                 {
                     PcsPostManager mng = new PcsPostManager(param.CommonParam);
                     result = mng.Unlock(param.ApiData);
+                }
+                return new ApiResult(result, this.ActionContext);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [ActionName("Approve")]
+        public ApiResult Approve(ApiParam<PcsPostSDO> param)
+        {
+            try
+            {
+                ApiResultObject<List<Post>> result = new ApiResultObject<List<Post>>(null, false);
+                if (param != null)
+                {
+                    PcsPostManager mng = new PcsPostManager(param.CommonParam);
+                    result = mng.Approve(param.ApiData);
+                }
+                return new ApiResult(result, this.ActionContext);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [ActionName("Reject")]
+        public ApiResult Reject(ApiParam<PcsPostSDO> param)
+        {
+            try
+            {
+                ApiResultObject<List<Post>> result = new ApiResultObject<List<Post>>(null, false);
+                if (param != null)
+                {
+                    PcsPostManager mng = new PcsPostManager(param.CommonParam);
+                    result = mng.Reject(param.ApiData);
                 }
                 return new ApiResult(result, this.ActionContext);
             }

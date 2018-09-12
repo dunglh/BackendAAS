@@ -14,5 +14,6 @@ namespace PCS.URI
         public const string DELETE = "api/PcsProject/Delete";
         public const string LOCK = "api/PcsProject/Lock";
         public const string UNLOCK = "api/PcsProject/Unlock";
+        public const string FINISH = "api/PcsProject/Finish";
     }
 }

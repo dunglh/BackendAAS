@@ -37,6 +37,7 @@ namespace PCS.BusinessManager.PcsPost
                 Post raw = null;
                 valid = valid && checker.VerifyId(data.Id, ref raw);
                 valid = valid && checker.IsUnLock(raw);
+                valid = valid && checker.CheckSttForDeleteOrUpdate(raw);
                 if (valid)
                 {
 					if (!DAOWorker.PcsPostDAO.Update(data))

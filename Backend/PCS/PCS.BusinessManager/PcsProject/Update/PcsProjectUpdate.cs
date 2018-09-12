@@ -37,6 +37,7 @@ namespace PCS.BusinessManager.PcsProject
                 Project raw = null;
                 valid = valid && checker.VerifyId(data.Id, ref raw);
                 valid = valid && checker.IsUnLock(raw);
+                valid = valid && checker.IsUnFinish(raw);
                 valid = valid && checker.ExistsCode(data.ProjectCode, data.Id);
                 if (valid)
                 {
@@ -68,6 +69,7 @@ namespace PCS.BusinessManager.PcsProject
                 PcsProjectCheck checker = new PcsProjectCheck(param);
                 valid = valid && checker.VerifyRequireField(data);
                 valid = valid && checker.IsUnLock(before);
+                valid = valid && checker.IsUnFinish(before);
                 valid = valid && checker.ExistsCode(data.ProjectCode, data.Id);
                 if (valid)
                 {

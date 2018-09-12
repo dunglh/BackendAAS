@@ -34,6 +34,7 @@ namespace PCS.BusinessManager.PcsProject
                 Project raw = null;
                 valid = valid && checker.VerifyId(data.Id, ref raw);
                 valid = valid && checker.IsUnLock(raw);
+                valid = valid && checker.IsUnFinish(raw);
                 valid = valid && checker.CheckConstraint(data.Id);
                 if (valid)
                 {

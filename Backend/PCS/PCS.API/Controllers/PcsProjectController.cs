@@ -138,5 +138,27 @@ namespace PCS.API.Controllers
                 return null;
             }
         }
+
+        [HttpPost]
+        [ActionName("Finish")]
+        public ApiResult Finish(ApiParam<long> param)
+        {
+            try
+            {
+                ApiResultObject<Project> result = new ApiResultObject<Project>(null);
+                if (param != null)
+                {
+                    PcsProjectManager mng = new PcsProjectManager(param.CommonParam);
+                    result = mng.Finish(param.ApiData);
+                }
+                return new ApiResult(result, this.ActionContext);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                return null;
+            }
+        }
+
     }
 }

@@ -8,6 +8,8 @@ using PCS.GetManager.PcsProject;
 using PCS.UTILITY;
 using PCS.DAO.Base;
 using PCS.BusinessManager.Base;
+using PCS.GetManager.PcsAddress;
+using PCS.GetManager.PcsPost;
 
 namespace PCS.BusinessManager.PcsProject
 {
@@ -336,7 +338,23 @@ namespace PCS.BusinessManager.PcsProject
             bool valid = true;
             try
             {
-                //TODO
+                PcsAddressFilterQuery addressFilter = new PcsAddressFilterQuery();
+                addressFilter.ProjectId = id;
+                List<Address> addressList = new PcsAddressManagerGet().Get(addressFilter);
+                if (IsNotNullOrEmpty(addressList))
+                {
+                    MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.PcsProject__TonTaiDuLieuDiaChi);
+                    return false;
+                }
+
+                PcsPostFilterQuery postFilter = new PcsPostFilterQuery();
+                postFilter.ProjectId = id;
+                List<Post> listPost = new PcsPostManagerGet().Get(postFilter);
+                if (IsNotNullOrEmpty(listPost))
+                {
+                    MessageUtil.SetMessage(param, LibraryMessage.Message.Enum.PcsProject__TonTaiDuLieuBaiDang);
+                    return false;
+                }
             }
             catch (Exception ex)
             {

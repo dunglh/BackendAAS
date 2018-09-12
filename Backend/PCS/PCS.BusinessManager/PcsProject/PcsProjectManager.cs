@@ -4,6 +4,7 @@ using DungLH.Util.CommonLogging;
 using DungLH.Util.Core;
 using System;
 using System.Collections.Generic;
+using PCS.BusinessManager.PcsProject.Finish;
 
 namespace PCS.BusinessManager.PcsProject
 {
@@ -14,7 +15,7 @@ namespace PCS.BusinessManager.PcsProject
         {
 
         }
-        
+
         public PcsProjectManager(CommonParam param)
             : base(param)
         {
@@ -44,7 +45,7 @@ namespace PCS.BusinessManager.PcsProject
             }
             return result;
         }
-		
+
         public ApiResultObject<Project> Update(Project data)
         {
             ApiResultObject<Project> result = new ApiResultObject<Project>(null);
@@ -66,10 +67,10 @@ namespace PCS.BusinessManager.PcsProject
                 LogSystem.Error(ex);
                 param.HasException = true;
             }
-            
+
             return result;
         }
-        
+
         public ApiResultObject<Project> Lock(Project data)
         {
             ApiResultObject<Project> result = new ApiResultObject<Project>(null);
@@ -91,7 +92,7 @@ namespace PCS.BusinessManager.PcsProject
                 LogSystem.Error(ex);
                 param.HasException = true;
             }
-            
+
             return result;
         }
 
@@ -142,8 +143,34 @@ namespace PCS.BusinessManager.PcsProject
                 LogSystem.Error(ex);
                 param.HasException = true;
             }
-            
+
             return result;
         }
+
+        public ApiResultObject<Project> Finish(long id)
+        {
+            ApiResultObject<Project> result = new ApiResultObject<Project>(null);
+            try
+            {
+                bool valid = true;
+                valid = valid && IsNotNull(param);
+                valid = valid && IsGreaterThanZero(id);
+                Project resultData = null;
+                if (valid)
+                {
+                    new PcsProjectFinish(param).Run(id, ref resultData);
+                }
+                result = this.PackResult(resultData);
+                this.FailLog(result.Success, id, result.Data);
+            }
+            catch (Exception ex)
+            {
+                LogSystem.Error(ex);
+                param.HasException = true;
+            }
+
+            return result;
+        }
+
     }
 }
